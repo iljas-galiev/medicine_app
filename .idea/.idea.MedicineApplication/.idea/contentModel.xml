@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\Admin\.Rider2019.2\config\scratches" t="IncludeRecursive" />
+    <e p="C:\Users\Admin\.Rider2019.2\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Admin\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_MedicineApplication.-664655154.00" t="ExcludeRecursive" />
+    <e p="C:\Users\Admin\source\repos\MedicineApplication" t="IncludeFlat">
+      <e p="MedicineApplication" t="IncludeRecursive">
+        <e p="appsettings.Development.json" t="Include" />
+        <e p="appsettings.json" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Core" t="Include">
+          <e p="DB.cs" t="Include" />
+          <e p="Entity.cs" t="Include" />
+          <e p="EntityRepository.cs" t="Include" />
+          <e p="User.cs" t="Include" />
+        </e>
+        <e p="MedicineApplication.csproj" t="IncludeRecursive" />
+        <e p="Model" t="Include">
+          <e p="User" t="Include">
+            <e p="UserEntity.cs" t="Include" />
+            <e p="UserRepository.cs" t="Include" />
+          </e>
+        </e>
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp3.1" t="Include">
+              <e p="MedicineApplication.AssemblyInfo.cs" t="Include" />
+              <e p="MedicineApplication.RazorAssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Pages" t="Include">
+          <e p="_ViewStart.cshtml" t="Include" />
+          <e p="Index.cshtml" t="Include" />
+          <e p="Index.cshtml.cs" t="Include" />
+          <e p="Shared" t="Include">
+            <e p="_Layout.cshtml" t="Include" />
+            <e p="_Nav.cshtml" t="Include" />
+          </e>
+        </e>
+        <e p="Program.cs" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="launchSettings.json" t="Include" />
+        </e>
+        <e p="Startup.cs" t="Include" />
+        <e p="wwwroot" t="Include">
+          <e p="config.rb" t="Include" />
+          <e p="css" t="Include">
+            <e p="bootstrap.css" t="Include" />
+            <e p="site.css" t="Include" />
+          </e>
+          <e p="js" t="Include">
+            <e p="bootstrap.js" t="Include" />
+            <e p="jquery.js" t="Include" />
+          </e>
+          <e p="sass" t="Include">
+            <e p="site.scss" t="Include" />
+          </e>
+        </e>
+      </e>
+      <e p="MedicineApplication.sln" t="IncludeFlat" />
+      <e p="packages" t="ExcludeRecursive" />
+    </e>
+  </component>
+</project>
