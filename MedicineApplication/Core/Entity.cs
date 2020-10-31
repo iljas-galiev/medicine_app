@@ -2,7 +2,7 @@
 
 namespace MedicineApplication.Core
 {
-    public class Entity<T> where T : Entity<T>, new()
+    public class Entity
     {
         public List<string> SafeAttributes;
         public bool IsNewRecord;

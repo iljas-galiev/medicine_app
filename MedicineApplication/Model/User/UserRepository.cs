@@ -9,9 +9,10 @@ namespace MedicineApplication.Model.User
             return "user";
         }
 
-        public override Entity<UserEntity> BeforeSave(Entity<UserEntity> user)
+        public override Entity BeforeSave(Entity user)
         {
             return user;
         }
+
     }
 }

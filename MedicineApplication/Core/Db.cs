@@ -11,6 +11,7 @@ namespace MedicineApplication.Core
     public static class Db
     {
         private static MySqlConnection conn;
+        public static DataContext Dc;
 
         static Db()
         {
@@ -18,6 +19,7 @@ namespace MedicineApplication.Core
             conn = new MySqlConnection(connStr);
             conn.Open();
 
+            Dc = new DataContext("MySql", connStr);
         }
 
 

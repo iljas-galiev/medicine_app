@@ -7,7 +7,7 @@ using MedicineApplication.Core;
 namespace MedicineApplication.Model.User
 {
     [Table("user")]
-    public class UserEntity : Entity<UserEntity>
+    public class UserEntity : Entity
     {
         [Column]
         public int Id { get; set; }
