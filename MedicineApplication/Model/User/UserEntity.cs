@@ -19,7 +19,8 @@ namespace MedicineApplication.Model.User
         public string Phone { get; set; }
 
         [Column]
-        public string Password { get; set; }
+        public string Password  { get; set; }
+        public string PasswordRepeat { get; set; }
 
 
         public string NewPassword { get; set; }

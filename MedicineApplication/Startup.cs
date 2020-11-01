@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Ubiety.Dns.Core;
 
 namespace MedicineApplication
 {
@@ -45,6 +46,7 @@ namespace MedicineApplication
                 User.Instance().Context = context;
                 User.Instance().IsAuth();
             });
+
 
         }
     }

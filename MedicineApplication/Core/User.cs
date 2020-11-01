@@ -2,7 +2,7 @@
 using System.Text;
 using MedicineApplication.Model.User;
 using Microsoft.AspNetCore.Http;
-using SshNet.Security.Cryptography;
+using MD5 = System.Security.Cryptography.MD5;
 
 namespace MedicineApplication.Core
 {
