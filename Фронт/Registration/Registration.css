@@ -1,0 +1,17 @@
+.btn-white{
+    background-color: #f8f9fa;
+}
+.dropdown-item:active{
+    background-color: white;
+}
+.custom-container{
+    margin-top: 20px;
+    border: 3px whitesmoke solid;
+    border-radius: 10px;
+}
+.info-block{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
