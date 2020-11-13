@@ -12,6 +12,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
         crossorigin="anonymous"></script>
+    <script src="Registration.js"></script>
     <link rel="stylesheet" href="Registration.css">
     <title>"Your doctor"</title>
 </head>
@@ -93,7 +94,7 @@
             </div>
             <div class="form-group">
                 <label for="passwordInput1">Введите ваш пароль</label>
-                <input type="password" class="form-control" id="passwordInput1" aria-describedby="passwordHelp1">
+                <input type="password" class="form-control" id="passwordInput1" aria-describedby="passwordHelp1" oninput="checkPassword1()">
                 <small id="passwordHelp1" class="form-text text-muted">Пароль может содержать буквы английского алфавита и цифры от 0 до 9. Минимальная длина пароля 8 символов, максимальная 16</small>
             </div>
             <div class="form-group">
