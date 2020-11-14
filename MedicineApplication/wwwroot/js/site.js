@@ -10,7 +10,7 @@
         $messagecontent.val('');
     }
 
-    var connection = new WebSocketManager.Connection("ws://kfu-medicine-app.herokuapp.com/msg");
+    var connection = new WebSocketManager.Connection("wss://kfu-medicine-app.herokuapp.com/msg");
     connection.enableLogging = true;
 
     connection.connectionMethods.onConnected = () => {
@@ -50,7 +50,7 @@
     });
 
     $('.chat-form').on('submit', function (e) {
-        e.prefentDefault();
+        e.preventDefault();
         AddMessage($messagecontent);
         return false;
     });
