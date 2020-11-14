@@ -54,7 +54,14 @@ namespace MedicineApplication.Core
             IsGuest = true;
             Entity = new UserEntity();
 
-            if (Context.Request.Cookies.ContainsKey("user"))
+            if (Context.Session.Keys.Contains("user"))
+            {
+                var user = Context.Session.GetString("user");
+
+                var userEntity = Db.Dc.GetTable<UserEntity>().FirstOrDefault(u => u.Id == Convert.ToInt32(user));
+                Auth(userEntity);
+            }
+            else if (Context.Request.Cookies.ContainsKey("user"))
             {
                 Context.Request.Cookies.TryGetValue("user", out string user);
                 Context.Request.Cookies.TryGetValue("__code", out string code);
@@ -64,6 +71,7 @@ namespace MedicineApplication.Core
                 if (userEntity.Id != 0 && code == ComputeHash(userEntity.Id.ToString() + userEntity.Salt))
                 {
                     Auth(userEntity);
+                    Context.Session.SetString("user", userEntity.Id.ToString());
                 }
             }
         }
