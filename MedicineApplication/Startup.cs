@@ -25,6 +25,9 @@ namespace MedicineApplication
 
             services.AddWebSocketManager();
 
+            services.AddHttpContextAccessor();
+            services.AddTransient<IUser, User>();
+
             services.AddSession();
         }
 
@@ -44,7 +47,6 @@ namespace MedicineApplication
             app.MapWebSocketManager("/msg", serviceProvider.GetService<SocketService>());
 
 
-
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapRazorPages();
@@ -52,9 +54,7 @@ namespace MedicineApplication
 
             app.Run(async (context) =>
             {
-                var user = User.Instance();
-                user.Context = context;
-                user.IsAuth();
+                (new User()).IsAuth();
             });
         }
     }

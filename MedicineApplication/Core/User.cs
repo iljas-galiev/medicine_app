@@ -10,9 +10,24 @@ using MD5 = System.Security.Cryptography.MD5;
 
 namespace MedicineApplication.Core
 {
-    public class User
+    public interface IUser
     {
-        public HttpContext Context;
+
+    }
+    public class User : IUser
+    {
+
+        public HttpContext HttpContext => _accessor.HttpContext;
+        private readonly IHttpContextAccessor _accessor;
+        public User(IHttpContextAccessor accessor)
+        {
+            _accessor = accessor;
+            _user = this;
+        }
+
+        public User() {}
+
+
         private static User _user;
 
         //private static
@@ -46,7 +61,7 @@ namespace MedicineApplication.Core
             Entity = user;
             IsGuest = false;
 
-            Context.Session.SetString("user_salt", Entity.Salt);
+            HttpContext.Session.SetString("user_salt", Entity.Salt);
         }
 
         public void IsAuth()
@@ -54,24 +69,24 @@ namespace MedicineApplication.Core
             IsGuest = true;
             Entity = new UserEntity();
 
-            if (Context.Session.Keys.Contains("user"))
+            if (HttpContext.Session.Keys.Contains("user"))
             {
-                var user = Context.Session.GetString("user");
+                var user = HttpContext.Session.GetString("user");
 
                 var userEntity = Db.Dc.GetTable<UserEntity>().FirstOrDefault(u => u.Id == Convert.ToInt32(user));
                 Auth(userEntity);
             }
-            else if (Context.Request.Cookies.ContainsKey("user"))
+            else if (HttpContext.Request.Cookies.ContainsKey("user"))
             {
-                Context.Request.Cookies.TryGetValue("user", out string user);
-                Context.Request.Cookies.TryGetValue("__code", out string code);
+                HttpContext.Request.Cookies.TryGetValue("user", out string user);
+                HttpContext.Request.Cookies.TryGetValue("__code", out string code);
                 if (user == "guest") return;
 
                 var userEntity = Db.Dc.GetTable<UserEntity>().FirstOrDefault(u => u.Id == Convert.ToInt32(user));
                 if (userEntity.Id != 0 && code == ComputeHash(userEntity.Id.ToString() + userEntity.Salt))
                 {
                     Auth(userEntity);
-                    Context.Session.SetString("user", userEntity.Id.ToString());
+                    HttpContext.Session.SetString("user", userEntity.Id.ToString());
                 }
             }
         }
