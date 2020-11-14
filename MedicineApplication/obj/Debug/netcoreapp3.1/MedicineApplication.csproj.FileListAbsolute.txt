@@ -126,3 +126,4 @@ C:\Users\Admin\source\repos\MedicineApplication\MedicineApplication\bin\Debug\ne
 C:\Users\Admin\source\repos\MedicineApplication\MedicineApplication\obj\Debug\netcoreapp3.1\Razor\Pages\Auth\Login.cshtml.g.cs
 C:\Users\Admin\source\repos\MedicineApplication\MedicineApplication\obj\Debug\netcoreapp3.1\Razor\Pages\Auth\Register.cshtml.g.cs
 C:\Users\Admin\source\repos\MedicineApplication\MedicineApplication\obj\Debug\netcoreapp3.1\Razor\Pages\Test.cshtml.g.cs
+C:\Users\Admin\source\repos\MedicineApplication\MedicineApplication\obj\Debug\netcoreapp3.1\Razor\Pages\Chat\Index.cshtml.g.cs

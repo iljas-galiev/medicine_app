@@ -1,4 +1,6 @@
-﻿using System.Security.Cryptography;
+﻿using System;
+using System.Linq;
+using System.Security.Cryptography;
 using LinqToDB;
 using MedicineApplication.Core;
 
@@ -18,6 +20,7 @@ namespace MedicineApplication.Model.User
             {
                 user.Password = Core.User.ComputeHash(user.Password);
             }
+
             return user;
         }
 
@@ -25,20 +28,22 @@ namespace MedicineApplication.Model.User
         {
             if (userEntity.Email == null)
             {
-                userEntity.AddError("E-mail","E-mail is required");
+                userEntity.AddError("E-mail", "E-mail is required");
             }
+
             if (userEntity.Password == null)
             {
-                userEntity.AddError("Password","Password is required");
+                userEntity.AddError("Password", "Password is required");
             }
+
             if (userEntity.PasswordRepeat == null)
             {
-                userEntity.AddError("Password repeat","Password repeat is required");
+                userEntity.AddError("Password repeat", "Password repeat is required");
             }
 
             if (!IsValidEmail(userEntity.Email))
             {
-                userEntity.AddError("E-mail","E-mail is incorrect");
+                userEntity.AddError("E-mail", "E-mail is incorrect");
             }
 
             if (userEntity.Password?.Length < 6)
@@ -53,18 +58,37 @@ namespace MedicineApplication.Model.User
 
             if (userEntity.Errors.Count > 0) return false;
 
+            userEntity.Status = 1;
+            userEntity.Salt = Core.User.ComputeHash((new Random().Next().ToString()));
+
+            userEntity.Password = Core.User.ComputeHash(userEntity.Password);
+            userEntity.CreatedAt = DateTime.Now;
+            userEntity.UpdatedAt = DateTime.Now;
+
             Db.Dc.Insert(userEntity);
 
             return true;
         }
 
+        public UserEntity Login(UserEntity userEntity)
+        {
+            var user = Db.Dc.GetTable<UserEntity>().FirstOrDefault(u =>
+                u.Email == userEntity.Email
+                && u.Password == Core.User.ComputeHash(userEntity.Password)
+            );
+
+            return user;
+        }
+
         static bool IsValidEmail(string email)
         {
-            try {
+            try
+            {
                 var addr = new System.Net.Mail.MailAddress(email);
                 return addr.Address == email;
             }
-            catch {
+            catch
+            {
                 return false;
             }
         }

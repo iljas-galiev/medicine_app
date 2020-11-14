@@ -4,7 +4,7 @@
     <e p="C:\Users\Admin\.Rider2019.2\config\consoles\db" t="IncludeRecursive" />
     <e p="C:\Users\Admin\.Rider2019.2\config\scratches" t="IncludeRecursive" />
     <e p="C:\Users\Admin\.Rider2019.2\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\Admin\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_MedicineApplication.-664655154.00" t="ExcludeRecursive" />
+    <e p="C:\Users\Admin\.Rider2019.2\system\resharper-host\local\Transient\Rider\v202\SolutionCaches\_MedicineApplication.-664655154.00" t="ExcludeRecursive" />
     <e p="C:\Users\Admin\source\repos\MedicineApplication" t="IncludeFlat">
       <e p="MedicineApplication" t="IncludeRecursive">
         <e p="appsettings.Development.json" t="Include" />
@@ -14,10 +14,15 @@
           <e p="DB.cs" t="Include" />
           <e p="Entity.cs" t="Include" />
           <e p="EntityRepository.cs" t="Include" />
+          <e p="SocketService.cs" t="Include" />
           <e p="User.cs" t="Include" />
         </e>
         <e p="MedicineApplication.csproj" t="IncludeRecursive" />
         <e p="Model" t="Include">
+          <e p="Message" t="Include">
+            <e p="MessageEntity.cs" t="Include" />
+            <e p="MessageRepository.cs" t="Include" />
+          </e>
           <e p="User" t="Include">
             <e p="UserEntity.cs" t="Include" />
             <e p="UserRepository.cs" t="Include" />
@@ -38,6 +43,10 @@
             <e p="Login.cshtml.cs" t="Include" />
             <e p="Register.cshtml" t="Include" />
             <e p="Register.cshtml.cs" t="Include" />
+          </e>
+          <e p="Chat" t="Include">
+            <e p="Index.cshtml" t="Include" />
+            <e p="Index.cshtml.cs" t="Include" />
           </e>
           <e p="Index.cshtml" t="Include" />
           <e p="Index.cshtml.cs" t="Include" />
@@ -62,6 +71,7 @@
           <e p="js" t="Include">
             <e p="bootstrap.js" t="Include" />
             <e p="jquery.js" t="Include" />
+            <e p="site.js" t="Include" />
           </e>
           <e p="sass" t="Include">
             <e p="site.scss" t="Include" />

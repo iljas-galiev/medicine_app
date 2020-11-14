@@ -1,7 +1,11 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
+using System.Net.Http.Headers;
 using System.Text;
+using LinqToDB;
 using MedicineApplication.Model.User;
 using Microsoft.AspNetCore.Http;
+using Ubiety.Dns.Core;
 using MD5 = System.Security.Cryptography.MD5;
 
 namespace MedicineApplication.Core
@@ -27,19 +31,33 @@ namespace MedicineApplication.Core
         public int Id;
         public UserEntity Entity;
 
-        public static string ComputeHash(string password)
+        public static string ComputeHash(string str)
         {
             return string.Join("",
-                MD5.Create().ComputeHash(Encoding.ASCII.GetBytes(password)).Select(s => s.ToString("x2")));
+                MD5.Create().ComputeHash(Encoding.ASCII.GetBytes(str)).Select(s => s.ToString("x2")));
         }
 
+
+        public void Auth(UserEntity user)
+        {
+            Id = user.Id;
+            Entity = user;
+            IsGuest = false;
+        }
 
         public void IsAuth()
         {
             if (Context.Request.Cookies.ContainsKey("user"))
             {
-                IsGuest = false;
-                Role = Context.Request.Cookies["user"];
+                Context.Request.Cookies.TryGetValue("user", out string user);
+                Context.Request.Cookies.TryGetValue("__code", out string code);
+                if (user == "guest") return;
+
+                var userEntity = Db.Dc.GetTable<UserEntity>().FirstOrDefault(u => u.Id == Convert.ToInt32(user));
+                if (userEntity.Id != 0 && code == ComputeHash(userEntity.Id.ToString() + userEntity.Salt))
+                {
+                    IsGuest = false;
+                }
             }
             else
             {

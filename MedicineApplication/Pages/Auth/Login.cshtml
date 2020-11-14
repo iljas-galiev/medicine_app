@@ -11,6 +11,7 @@
     <div class="card-body">
         <div class="form">
             <form action="" method="post">
+                @Html.AntiForgeryToken()
                 <div class="form-group">
                     <label for="email" class="form-label">E-mail</label>
                     <input type="text" name="email" class="form-control" id="email">

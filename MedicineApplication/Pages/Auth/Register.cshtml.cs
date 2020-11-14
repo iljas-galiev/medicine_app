@@ -22,6 +22,12 @@ namespace MedicineApplication.Pages.Auth
 
         public void OnGet()
         {
+
+            if (!Core.User.Instance().IsGuest)
+            {
+                HttpContext.Response.StatusCode = 301;
+                HttpContext.Response.Headers.Add("Location", "/");
+            }
         }
 
         public void OnPost()
