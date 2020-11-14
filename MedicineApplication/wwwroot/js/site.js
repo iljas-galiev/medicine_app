@@ -10,7 +10,7 @@
         $messagecontent.val('');
     }
 
-    var connection = new WebSocketManager.Connection("ws://localhost:5000/msg");
+    var connection = new WebSocketManager.Connection("ws://kfu-medicine-app.herokuapp.com/msg");
     connection.enableLogging = true;
 
     connection.connectionMethods.onConnected = () => {
