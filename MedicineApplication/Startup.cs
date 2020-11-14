@@ -40,7 +40,7 @@ namespace MedicineApplication
             app.UseRouting();
 
             app.UseWebSockets();
-            app.MapWebSocketManager("/chat", serviceProvider.GetService<SocketService>());
+            app.MapWebSocketManager("/msg", serviceProvider.GetService<SocketService>());
 
 
 

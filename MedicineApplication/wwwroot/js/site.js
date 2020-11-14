@@ -1,5 +1,14 @@
-﻿$(document).ready(function() {
-    var connection = new WebSocketManager.Connection("ws://localhost:5000/chat");
+﻿function AddMessage() {
+    var message = $messagecontent.val().trim();
+    if (message.length == 0) {
+        return false;
+    }
+    connection.invoke("SendMessage", message);
+    $messagecontent.val('');
+}
+
+$(document).ready(function () {
+    var connection = new WebSocketManager.Connection("ws://localhost:5000/msg");
     connection.enableLogging = true;
 
     connection.connectionMethods.onConnected = () => {
@@ -19,15 +28,17 @@
     connection.start();
 
     var $messagecontent = $('#message');
-    $messagecontent.keyup(function(e) {
+    $messagecontent.keyup(function (e) {
         if (e.keyCode == 13) {
-            var message = $messagecontent.val().trim();
-            if (message.length == 0) {
-                return false;
-            }
-            connection.invoke("SendMessage", message);
-            $messagecontent.val('');
+            AddMessage();
         }
     });
+
+    $('.chat-form').on('submit', function (e) {
+        e.prefentDefault();
+        AddMessage();
+        return false;
+    });
+
     $('#messages').scrollTop($('#messages').prop('scrollHeight'));
 });

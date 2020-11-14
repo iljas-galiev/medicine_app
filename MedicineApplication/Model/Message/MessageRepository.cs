@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Security.Cryptography;
+using System.Text.RegularExpressions;
 using LinqToDB;
 using MedicineApplication.Core;
 
@@ -16,8 +17,20 @@ namespace MedicineApplication.Model.Message
         public override Entity BeforeSave(Entity entity)
         {
             MessageEntity msg = (MessageEntity) entity;
+            msg.Text = StripHTML(msg.Text);
 
             return msg;
+        }
+
+        public void Add(MessageEntity msg)
+        {
+            msg = (MessageEntity)BeforeSave(msg);
+            return;
+        }
+
+        public static string StripHTML(string input)
+        {
+            return Regex.Replace(input, "<.*?>", String.Empty);
         }
 
     }
