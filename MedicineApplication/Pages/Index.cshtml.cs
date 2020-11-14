@@ -9,9 +9,6 @@ namespace MedicineApplication.Pages
 
         public void OnGet()
         {
-            Db.Execute("SELECT 1;");
-            if (Core.User.Instance().IsGuest) Message = "Guest";
-            else Message = Core.User.Instance().Role;
         }
     }
 }

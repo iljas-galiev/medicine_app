@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Dynamic;
+using System.Linq;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
+using LinqToDB;
 using MedicineApplication.Model.Message;
+using MedicineApplication.Model.User;
 using WebSocketManager;
 
 namespace MedicineApplication.Core
@@ -15,19 +18,25 @@ namespace MedicineApplication.Core
         {
         }
 
-        public async Task SendMessage(string message)
+        public async Task SendMessage(string message, string user)
         {
+
+                var userEntity = Db.Dc.GetTable<UserEntity>()
+                .Where(u => u.Salt == user)
+                .FirstOrDefault();
+
             MessageEntity msg = new MessageEntity();
 
-            msg.UserId = Core.User.Instance().Id;
+            msg.UserId = userEntity.Id;
             msg.Text = message;
             msg.Datetime = DateTime.Now;
 
             (new MessageRepository()).Add(msg);
 
-            var userName = Core.User.Instance().Entity.Name;
+            var userName = userEntity.Email;
 
-            await InvokeClientMethodToAllAsync("pingMessage", userName, message);
+            await InvokeClientMethodToAllAsync("pingMessage", userName, message, msg.Datetime.ToString("G"));
         }
     }
+
 }

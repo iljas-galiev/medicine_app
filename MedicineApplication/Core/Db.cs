@@ -15,7 +15,7 @@ namespace MedicineApplication.Core
 
         static Db()
         {
-            string connStr = "server=localhost;user=root;database=medicine;password=root;";
+            string connStr = "server=fojvtycq53b2f2kx.chr7pe7iynqr.eu-west-1.rds.amazonaws.com;user=hvfddq5gqcqjsklv;database=vqwx1oabpq9qevwt;password=b2o6grqqrweaqm0o;";
             conn = new MySqlConnection(connStr);
             conn.Open();
 

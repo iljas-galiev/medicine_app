@@ -15,6 +15,8 @@ namespace MedicineApplication.Core
         public HttpContext Context;
         private static User _user;
 
+        //private static
+
         public static User Instance()
         {
             if (_user == null)
@@ -43,10 +45,15 @@ namespace MedicineApplication.Core
             Id = user.Id;
             Entity = user;
             IsGuest = false;
+
+            Context.Session.SetString("user_salt", Entity.Salt);
         }
 
         public void IsAuth()
         {
+            IsGuest = true;
+            Entity = new UserEntity();
+
             if (Context.Request.Cookies.ContainsKey("user"))
             {
                 Context.Request.Cookies.TryGetValue("user", out string user);
@@ -56,12 +63,8 @@ namespace MedicineApplication.Core
                 var userEntity = Db.Dc.GetTable<UserEntity>().FirstOrDefault(u => u.Id == Convert.ToInt32(user));
                 if (userEntity.Id != 0 && code == ComputeHash(userEntity.Id.ToString() + userEntity.Salt))
                 {
-                    IsGuest = false;
+                    Auth(userEntity);
                 }
-            }
-            else
-            {
-                Context.Response.Cookies.Append("user", "guest");
             }
         }
     }

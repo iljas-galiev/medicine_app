@@ -24,6 +24,8 @@ namespace MedicineApplication
             services.AddRazorPages();
 
             services.AddWebSocketManager();
+
+            services.AddSession();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -39,6 +41,8 @@ namespace MedicineApplication
 
             app.UseRouting();
 
+            app.UseSession();
+
             app.UseWebSockets();
             app.MapWebSocketManager("/msg", serviceProvider.GetService<SocketService>());
 
@@ -51,11 +55,10 @@ namespace MedicineApplication
 
             app.Run(async (context) =>
             {
-                User.Instance().Context = context;
-                User.Instance().IsAuth();
+                var user = User.Instance();
+                user.Context = context;
+                user.IsAuth();
             });
-
-
         }
     }
 }

@@ -14,12 +14,14 @@
           <e p="DB.cs" t="Include" />
           <e p="Entity.cs" t="Include" />
           <e p="EntityRepository.cs" t="Include" />
+          <e p="SessionExtension.cs" t="Include" />
           <e p="SocketService.cs" t="Include" />
           <e p="User.cs" t="Include" />
         </e>
         <e p="MedicineApplication.csproj" t="IncludeRecursive" />
         <e p="Model" t="Include">
           <e p="Message" t="Include">
+            <e p="MessageContent.cs" t="Include" />
             <e p="MessageEntity.cs" t="Include" />
             <e p="MessageRepository.cs" t="Include" />
           </e>

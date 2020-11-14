@@ -1,13 +1,15 @@
-﻿function AddMessage() {
-    var message = $messagecontent.val().trim();
-    if (message.length == 0) {
-        return false;
-    }
-    connection.invoke("SendMessage", message);
-    $messagecontent.val('');
-}
+﻿$(document).ready(function () {
+    var user = $('#user').val()
 
-$(document).ready(function () {
+    function AddMessage($messagecontent) {
+        var message = $messagecontent.val().trim();
+        if (message.length == 0) {
+            return false;
+        }
+        connection.invoke("SendMessage", message, user);
+        $messagecontent.val('');
+    }
+
     var connection = new WebSocketManager.Connection("ws://localhost:5000/msg");
     connection.enableLogging = true;
 
@@ -19,10 +21,23 @@ $(document).ready(function () {
 
     }
 
-    connection.clientMethods["pingMessage"] = (socketId, message) => {
-        var messageText = socketId + ' said: ' + message;
-        $('#messages').append('<li>' + messageText + '</li>');
-        $('#messages').scrollTop($('#messages').prop('scrollHeight'));
+    connection.clientMethods["pingMessage"] = (user, message, date) => {
+        var messageText = '<div class="message-entity">\n' +
+            '                    <div class="message-header">\n' +
+            '                        <span class="message-user">\n' +
+            user +
+            '                        </span>\n' +
+            '                        <span class="message-datetime">\n' +
+            date +
+            '                        </span>\n' +
+            '                    </div>\n' +
+            '                    <div class="message-text">\n' +
+            message +
+            '                    </div>\n' +
+            '                </div>';
+        $('.message-list').prepend(messageText);
+        $(window).scrollTop(0);
+        //
     }
 
     connection.start();
@@ -30,15 +45,16 @@ $(document).ready(function () {
     var $messagecontent = $('#message');
     $messagecontent.keyup(function (e) {
         if (e.keyCode == 13) {
-            AddMessage();
+            AddMessage($messagecontent);
         }
     });
 
     $('.chat-form').on('submit', function (e) {
         e.prefentDefault();
-        AddMessage();
+        AddMessage($messagecontent);
         return false;
     });
 
     $('#messages').scrollTop($('#messages').prop('scrollHeight'));
 });
+

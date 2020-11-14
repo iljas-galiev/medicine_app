@@ -4,6 +4,7 @@ using System.Security.Cryptography;
 using System.Text.RegularExpressions;
 using LinqToDB;
 using MedicineApplication.Core;
+using Microsoft.AspNetCore.Http;
 
 namespace MedicineApplication.Model.Message
 {
@@ -25,7 +26,7 @@ namespace MedicineApplication.Model.Message
         public void Add(MessageEntity msg)
         {
             msg = (MessageEntity)BeforeSave(msg);
-            return;
+            Db.Dc.Insert(msg);
         }
 
         public static string StripHTML(string input)
