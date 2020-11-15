@@ -53,19 +53,17 @@
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownEnterButton">
                         <form class="dropdown-item">
                             <div class="form-group">
-                                <label for="Login">Login</label>
-                                <input type="text" class="form-control" id="Login" aria-describedby="loginHelp"
-                                    placeholder="Enter your login">
-                                <small id="loginHelp" class="form-text text-muted">We'll never share your data with
-                                    anyone else.</small>
+                                <label for="authLogin">Введите ваши логин и пароль</label>
+                                <input type="text" class="form-control" id="authLogin" aria-describedby="authLoginHelp" placeholder="Логин">
+                                <small id="authLoginHelp" class="form-text text-muted"></small>
                             </div>
                             <div class="form-group">
-                                <label for="Password">Password</label>
-                                <input type="password" class="form-control" id="Password" placeholder="Password">
+                                <label for="Password">Пароль</label>
+                                <input type="password" class="form-control" id="authPassword" placeholder="Пароль">
                             </div>
                             <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="RememberMe">
-                                <label class="form-check-label" for="RememberMe">Remember me</label>
+                                <input type="checkbox" class="form-check-input" id="authRememberMe">
+                                <label class="form-check-label" for="authRememberMe">Запомнить меня</label>
                             </div>
                             <button type="submit" class="btn btn-white">Войти</button>
                         </form>
@@ -77,20 +75,21 @@
     </div>
     <div class="container custom-container">
         <h3 class="text-center info-block">Заполните все поля и нажмите на кнопку "Зарегистрироваться". После этого Вам на электронную почту придёт сообщение для пожтверждения регистрации. Указывайте только настоящую информацию.</h3>
-        <form>
+        <form id="regForm">
             <div class="form-group">
               <label for="loginInput">Введите ваш логин</label>
-              <input type="text" class="form-control" id="loginInput" aria-describedby="loginHelp" name="login">
-              <small id="loginHelp" class="form-text text-muted">Логин должен быть уникальным.</small> 
+              <input type="text" class="form-control" id="loginInput" aria-describedby="loginHelp" oninput="checkLogin()" name="login">
+              <small id="loginHelp" class="form-text text-muted">Логин может содержать буквы английского алфавита и цифры от 0 до 9, он не может быть длиннее 12 символов. Логин должен быть уникальным</small> 
             </div>
             <div class="form-group">
                 <label for="emailInput">Введите ваш электронный почтовый адрес</label>
-                <input type="email" class="form-control" id="emailInput" aria-describedby="emailHelp" name="email">
+                <input type="email" class="form-control" id="emailInput" aria-describedby="emailHelp" name="email" oninput="checkEmail()">
                 <small id="emailHelp" class="form-text text-muted">На этот адрес придёт письмо для подтверждения регистрации.</small>
             </div>
             <div class="form-group">
                 <label for="phoneInput">Введите ваш номер телефона</label>
-                <input type="tel" class="form-control" id="phoneInput" name="phone">
+                <input type="text" class="form-control" id="phoneInput" name="phone" oninput="checkPhone()">
+                <small id="phoneHelp" class="form-text text-muted"></small>
             </div>
             <div class="form-group">
                 <label for="passwordInput1">Введите ваш пароль</label>
@@ -102,7 +101,8 @@
                 <input type="password" class="form-control" id="passwordInput2" oninput="checkSecondPasswordIsSimilarToFirst()" aria-describedby="passwordHelp2" name="password">
                 <small id="passwordHelp2" class="form-text text-muted"></small>
             </div>
-            <button type="submit" class="btn btn-outline-dark">Зарегистрироваться</button>
+            <button type="button" class="btn btn-outline-dark" onclick="sendForm()" aria-describedby="sendBtnHelp">Зарегистрироваться</button>
+            <small id="sendBtnHelp" class="form-text text-muted"></small>
           </form>
     </div>
 </body>
