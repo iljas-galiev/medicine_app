@@ -1,3 +1,7 @@
+body{
+    background-color: #d9dde0;
+    position: relative;
+}
 .btn-white{
     background-color: #f8f9fa;
 }
@@ -5,9 +9,10 @@
     background-color: white;
 }
 .custom-container{
-    margin-top: 20px;
+    margin-top: 80px;
     border: 3px whitesmoke solid;
     border-radius: 10px;
+    background-color: white;;
 }
 .info-block{
     margin-top: 10px;
@@ -15,3 +20,19 @@
     padding-left: 10px;
     padding-right: 10px;
 }
+.header-link-elem:hover,
+.header-link-elem.hover{
+    background-color: white;
+    color: #212529!important;
+    border-radius: 3px;
+}
+.header-btn-elem:hover,
+.header-btn-elem.hover{
+    background-color: white!important;
+    color: #212529!important;
+    border-radius: 3px;
+}
+
+
+
+
