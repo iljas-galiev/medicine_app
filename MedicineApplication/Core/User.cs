@@ -17,13 +17,13 @@ namespace MedicineApplication.Core
     public class User : IUser
     {
 
-        public HttpContext HttpContext => _accessor.HttpContext;
         private readonly IHttpContextAccessor _accessor;
         public User(IHttpContextAccessor accessor)
         {
             _accessor = accessor;
             _user = this;
         }
+        public HttpContext HttpContext => _accessor.HttpContext;
 
         public User() {}
 
