@@ -23,12 +23,16 @@ namespace MedicineApplication.Core
             _accessor = accessor;
             _user = this;
         }
-        public HttpContext HttpContext => _accessor.HttpContext;
+        public HttpContext HttpContext;
 
-        public User() {}
+        public User()
+        {
+            //this.HttpContext =
+        }
 
 
         private static User _user;
+
 
         //private static
 

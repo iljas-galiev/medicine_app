@@ -1,16 +1,10 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Sockets;
-using System.Threading.Tasks;
 using MedicineApplication.Core;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.WebSockets;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Ubiety.Dns.Core;
 using WebSocketManager;
 
 namespace MedicineApplication
@@ -25,8 +19,15 @@ namespace MedicineApplication
 
             services.AddWebSocketManager();
 
-            services.AddHttpContextAccessor();
-            services.AddTransient<IUser, User>();
+            services.AddAuthentication(configureOptions =>
+                {
+                    configureOptions.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                    configureOptions.RequireAuthenticatedSignIn = false;
+                })
+                .AddCookie(options => //CookieAuthenticationOptions
+                {
+                    options.LoginPath = new Microsoft.AspNetCore.Http.PathString("/auth/login");
+                });
 
             services.AddSession();
         }
@@ -43,6 +44,9 @@ namespace MedicineApplication
 
             app.UseSession();
 
+            app.UseAuthorization();
+            app.UseAuthentication();
+
             app.UseWebSockets();
             app.MapWebSocketManager("/msg", serviceProvider.GetService<SocketService>());
 
@@ -54,7 +58,7 @@ namespace MedicineApplication
 
             app.Run(async (context) =>
             {
-                (new User()).IsAuth();
+
             });
         }
     }

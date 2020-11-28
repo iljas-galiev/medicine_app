@@ -7,7 +7,7 @@ using LinqToDB;
 using MedicineApplication.Core;
 using MedicineApplication.Model.Message;
 using MedicineApplication.Model.User;
-using Microsoft.AspNetCore.Mvc.Filters;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace MedicineApplication.Pages.Chat
@@ -17,13 +17,14 @@ namespace MedicineApplication.Pages.Chat
         public MessageContent[] Messages;
         public void OnGet()
         {
+            /*
             var isGuest = Core.User.Instance().IsGuest;
             if (isGuest)
             {
                 HttpContext.Response.StatusCode = 301;
                 HttpContext.Response.Headers.Add("Location", "/auth/login");
                 Redirect("/auth/login");
-            }
+            }*/
 
             var res = from msg in Db.Dc.GetTable<MessageEntity>()
                     join user in Db.Dc.GetTable<UserEntity>() on msg.UserId equals user.Id
