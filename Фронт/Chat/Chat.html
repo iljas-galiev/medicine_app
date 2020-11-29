@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+        crossorigin="anonymous"></script>
+    <script src="D:\GitHUB\medicine_app\Фронт\Main.js"></script>
+    <link rel="stylesheet" href="D:\GitHUB\medicine_app\Фронт\Main.css">
+    <link rel="shortcut icon" href="https://gu-st.ru/content/situation_icons/car_sell.svg">
+    <title>"Машины"</title>
+</head>
+<body>
+    <div class="container-fluent bg-header fixed-top">
+        <div id="header" class="container">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-header">
+                <a class="navbar-brand header-link-elem" href="#">Главная</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li>
+                            <a class="navbar-brand header-link-elem" href="#">Объявления</a>
+                        </li>
+                        <li>
+                            <a class="navbar-brand header-link-elem" href="#">Создать объявление</a>
+                        </li>
+                        <li>
+                            <a class="navbar-brand header-link-elem" href="#">Чат</a>
+                        </li>
+                    </ul>
+                    <div class="dropdown open">
+                        <button class="btn dropdown-toggle header-btn-elem" type="button" id="dropdownEnterButton"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Войти
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownEnterButton">
+                            <form class="dropdown-item">
+                                <div class="form-group">
+                                    <label for="authLogin">Введите ваши логин и пароль</label>
+                                    <input type="text" class="form-control" id="authLogin" aria-describedby="authLoginHelp" placeholder="Логин">
+                                    <small id="authLoginHelp" class="form-text text-muted"></small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="Password">Пароль</label>
+                                    <input type="password" class="form-control" id="authPassword" placeholder="Пароль">
+                                </div>
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="authRememberMe">
+                                    <label class="form-check-label" for="authRememberMe">Запомнить меня</label>
+                                </div>
+                                <button type="submit" class="btn header-dropdown-btn">Войти</button>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <div class="container custom-container-shadow">
+        <div class="row">
+            <div class="col-md-3 right-line">
+                <ul class="chats-list">
+                    <li class="chats-list-item" onclick="">
+                        <div class="chat-adt-name">
+                            Преневероятно длинное название объявления
+                        </div>
+                        <div class="chat-user-info">
+                            <div>
+                                <img class="chat-user-small-avatar" src = "https://mir-avatarok.3dn.ru/_si/0/03342719.jpg" width="40" height="40">
+                            </div>
+                            <div class="chat-user-login">
+                                Anton118
+                            </div>
+                        </div>
+                    </li>
+                    <li class="chats-list-item" onclick="">
+                        <div class="chat-adt-name">
+                            Название объявления
+                        </div>
+                        <div class="chat-user-info">
+                            <div>
+                                <img class="chat-user-small-avatar" src = "https://mir-avatarok.3dn.ru/_si/0/03342719.jpg" width="40" height="40">
+                            </div>
+                            <div class="chat-user-login">
+                                Anton118
+                            </div>
+                        </div>
+                    </li>
+                    <li class="chats-list-item" onclick="">
+                        <div class="chat-adt-name">
+                            Название объявления
+                        </div>
+                        <div class="chat-user-info">
+                            <div>
+                                <img class="chat-user-small-avatar" src = "https://mir-avatarok.3dn.ru/_si/0/03342719.jpg" width="40" height="40">
+                            </div>
+                            <div class="chat-user-login">
+                                Anton118
+                            </div>
+                        </div>
+                    </li>
+                    <li class="chats-list-item" onclick="">
+                        <div class="chat-adt-name">
+                            Название объявления
+                        </div>
+                        <div class="chat-user-info">
+                            <div>
+                                <img class="chat-user-small-avatar" src = "https://mir-avatarok.3dn.ru/_si/0/03342719.jpg" width="40" height="40">
+                            </div>
+                            <div class="chat-user-login">
+                                Anton118
+                            </div>
+                        </div>
+                    </li>
+                    <li class="chats-list-item" onclick="">
+                        <div class="chat-adt-name">
+                            Название объявления
+                        </div>
+                        <div class="chat-user-info">
+                            <div>
+                                <img class="chat-user-small-avatar" src = "https://mir-avatarok.3dn.ru/_si/0/03342719.jpg" width="40" height="40">
+                            </div>
+                            <div class="chat-user-login">
+                                Anton118
+                            </div>
+                        </div>
+                    </li>
+                    <li class="chats-list-item" onclick="">
+                        <div class="chat-adt-name">
+                            Название объявления
+                        </div>
+                        <div class="chat-user-info">
+                            <div>
+                                <img class="chat-user-small-avatar" src = "https://mir-avatarok.3dn.ru/_si/0/03342719.jpg" width="40" height="40">
+                            </div>
+                            <div class="chat-user-login">
+                                Anton118
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-9">
+                <p class="text-center chat-messages-header line-bottom">Название объявления</p>
+                <ul class="messages">
+                    <li class="message">
+                        <div class="message-user-info">
+                            <img class="chat-user-small-avatar" src = "https://mir-avatarok.3dn.ru/_si/0/03342719.jpg" width="40" height="40">
+                            <div class="chat-user-login">
+                                Anton118
+                            </div>
+                        </div>
+                        <div class="message-text">Текст сообщения
+                        </div>
+                        <div class="message-datetime">
+                            29.11.2020 22:37
+                        </div>
+                    </li>
+                    <li class="message">
+                        <div class="message-user-info">
+                            <img class="chat-user-small-avatar" src = "https://mir-avatarok.3dn.ru/_si/0/03342719.jpg" width="40" height="40">
+                            <div class="chat-user-login">
+                                Anton118
+                            </div>
+                        </div>
+                        <div class="message-text">Текст сообщения
+                        </div>
+                        <div class="message-datetime">
+                            29.11.2020 22:37
+                        </div>
+                    </li>
+                    <li class="message my-message">
+                        <div class="message-user-info my-message-info">
+                            <img class="chat-user-small-avatar" src = "https://mir-avatarok.3dn.ru/_si/0/03342719.jpg" width="40" height="40">
+                            <div class="chat-user-login">
+                                Я
+                            </div>
+                        </div>
+                        <div class="message-text my-message-text">Текст сообщения: что-то невероятно длинное и, конечно же, очень важное.
+Что-то ещё невероятно длинное и, конечно же, очень важное.
+                        </div>
+                        <div class="message-datetime my-message-datetime">
+                            29.11.2020 22:37
+                        </div>
+                    </li>
+                    <li class="message my-message">
+                        <div class="message-user-info my-message-info">
+                            <img class="chat-user-small-avatar" src = "https://mir-avatarok.3dn.ru/_si/0/03342719.jpg" width="40" height="40">
+                            <div class="chat-user-login">
+                                Я
+                            </div>
+                        </div>
+                        <div class="message-text my-message-text">Что-то ещё невероятно длинное и, конечно же, очень важное.
+                        </div>
+                        <div class="message-datetime my-message-datetime">
+                            29.11.2020 22:37
+                        </div>
+                    </li>
+                    <li class="message">
+                        <div class="message-user-info">
+                            <img class="chat-user-small-avatar" src = "https://mir-avatarok.3dn.ru/_si/0/03342719.jpg" width="40" height="40">
+                            <div class="chat-user-login">
+                                Anton118
+                            </div>
+                        </div>
+                        <div class="message-text">Текст сообщения
+                        </div>
+                        <div class="message-datetime">
+                            29.11.2020 22:37
+                        </div>
+                    </li>
+                </ul>
+                <form class="d-flex-row">
+                    <input id="sendMsgInput" type="text" placeholder="Введите сообщение" name="message" class="form-control input-options">
+                    <button id="sendMsgBtn" class="custom-btn" onclick="">Отправить</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

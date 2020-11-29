@@ -11,13 +11,14 @@
         crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
-        crossorigin="anonymous"></script>
+        crossorigin="anonymous">
+    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="D:\GitHUB\medicine_app\Фронт\Main.js"></script>
     <link rel="stylesheet" href="D:\GitHUB\medicine_app\Фронт\Main.css">
     <link rel="shortcut icon" href="https://gu-st.ru/content/situation_icons/car_sell.svg">
-    <title>"Машинки"</title>
+    <title>"Машины"</title>
 </head>
-
 <body>
     <div class="container-fluent bg-header fixed-top">
         <div id="header" class="container">
@@ -70,36 +71,59 @@
         </div>
     </div>
     <div class="container custom-container">
-        <h3 class="text-center info-block">Заполните все поля и нажмите на кнопку "Зарегистрироваться". После этого Вам на электронную почту придёт сообщение для пожтверждения регистрации. Указывайте только настоящую информацию.</h3>
-        <form id="regForm">
-            <div class="form-group">
-              <label for="loginInput">Введите ваш логин</label>
-              <input type="text" class="form-control input-options" id="loginInput" aria-describedby="loginHelp" oninput="checkLogin()" name="login">
-              <small id="loginHelp" class="form-text second-text">Логин может содержать буквы английского алфавита и цифры от 0 до 9, он не может быть длиннее 12 символов. Логин должен быть уникальным</small> 
+        <div class="row">
+            <nav class="navbar navbar-expand-md navbar-light personal-area-menu col-md-4">
+                <button class="navbar-toggler  mr-auto" type="button" data-toggle="collapse" data-target="#navbarPersonalArea"
+                        aria-controls="navbarPersonalArea" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse personal-area-menu right-line" id="navbarPersonalArea">
+                    <ul class="navbar-nav mr-auto  personal-area-menu">
+                        <li>
+                          <a class="navbar-brand personal-area-menu-item" href="D:\GitHUB\medicine_app\Фронт\PersonalArea\rightContent\ProfileSettings.html">Настройки профиля</a>
+                        </li>
+                        <li>
+                            <a class="navbar-brand personal-area-menu-item" href="D:\GitHUB\medicine_app\Фронт\PersonalArea\rightContent\PersonalData.html">Персональные данные</a>
+                        </li>
+                        <li>
+                            <a class="navbar-brand personal-area-menu-item" href="D:\GitHUB\medicine_app\Фронт\PersonalArea\rightContent\Sequrity.html">Безопасность</a>
+                        </li>
+                    </ul>
+                  </div>
+            </nav>
+            <div class="col-md-8">
+                <div class = "right-content">
+                    <div class="right-content-header">
+                        Персональные данные
+                    </div>
+                        <ul class="right-content-list">
+                            <li class="right-content-list-item">
+                                <div class="container-fluent">
+                                    <form id="newPhoneForm" class="form-group" method="POST" action="">
+                                        <label for="newPhoneInput">Поменять номер телефона</label>
+                                        <input type="text" class="form-control input-options" id="newPhoneInput" aria-describedby="newPhoneHelp"  name="newPhone">
+                                        <small id="newPhoneHelp" class="form-text second-text"></small> 
+                                        <button type="button" class="btn personal-area-btn custom-btn" onclick="sendNewPhoneForm()" aria-describedby="refreshPhoneBtnHelp">Сохранить</button>
+                                        <small id="refreshPhoneBtnHelp" class="form-text second-text"></small>
+                                    </form>
+                                </div>
+                            </li>
+                            <li class="right-content-list-item">
+                                <div class="container-fluent">
+                                    <form id="newEmailForm" class="form-group" method="POST" action="">
+                                        <label for="newEmailInput">Поменять адрес электронной почты</label>
+                                        <input type="text" class="form-control input-options" id="newEmailInput" aria-describedby="newEmailHelp"  name="newEmail">
+                                        <small id="newEmailHelp" class="form-text second-text"></small> 
+                                        <button type="button" class="btn personal-area-btn custom-btn" onclick="sendNewEmailForm()" aria-describedby="refreshEmailBtnHelp">Сохранить</button>
+                                        <small id="refreshEmailBtnHelp" class="form-text second-text"></small>
+                                    </form>
+                                </div>
+                            </li>
+                        </ul>
+                </div>
             </div>
-            <div class="form-group">
-                <label for="emailInput">Введите ваш электронный почтовый адрес</label>
-                <input type="email" class="form-control input-options" id="emailInput" aria-describedby="emailHelp" name="email" oninput="checkEmail()">
-                <small id="emailHelp" class="form-text second-text">На этот адрес придёт письмо для подтверждения регистрации.</small>
-            </div>
-            <div class="form-group">
-                <label for="phoneInput">Введите ваш номер телефона</label>
-                <input type="text" class="form-control input-options" id="phoneInput" name="phone" oninput="checkPhone()">
-                <small id="phoneHelp" class="form-text second-text"></small>
-            </div>
-            <div class="form-group">
-                <label for="passwordInput1">Введите ваш пароль</label>
-                <input type="password" class="form-control input-options" id="passwordInput1" aria-describedby="passwordHelp1" oninput="checkPassword1()">
-                <small id="passwordHelp1" class="form-text second-text">Пароль может содержать буквы английского алфавита и цифры от 0 до 9. Минимальная длина пароля 8 символов, максимальная 16</small>
-            </div>
-            <div class="form-group">
-                <label for="passwordInput2">Повторите пароль</label>
-                <input type="password" class="form-control input-options" id="passwordInput2" oninput="checkSecondPasswordIsSimilarToFirst()" aria-describedby="passwordHelp2" name="password">
-                <small id="passwordHelp2" class="form-text second-text"></small>
-            </div>
-            <button type="button" class="btn custom-btn" onclick="sendForm()" aria-describedby="sendBtnHelp">Зарегистрироваться</button>
-            <small id="sendBtnHelp" class="form-text second-text"></small>
-          </form>
+        </div>
     </div>
 </body>
 

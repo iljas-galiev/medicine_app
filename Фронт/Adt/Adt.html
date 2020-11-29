@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+        crossorigin="anonymous"></script>
+    <script src="D:\GitHUB\medicine_app\Фронт\Main.js"></script>
+    <link rel="stylesheet" href="D:\GitHUB\medicine_app\Фронт\Main.css">
+    <link rel="shortcut icon" href="https://gu-st.ru/content/situation_icons/car_sell.svg">
+    <title>"Машины"</title>
+</head>
+<body>
+    <div class="container-fluent bg-header fixed-top">
+        <div id="header" class="container">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-header">
+                <a class="navbar-brand header-link-elem" href="#">Главная</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li>
+                            <a class="navbar-brand header-link-elem" href="#">Объявления</a>
+                        </li>
+                        <li>
+                            <a class="navbar-brand header-link-elem" href="#">Создать объявление</a>
+                        </li>
+                        <li>
+                            <a class="navbar-brand header-link-elem" href="#">Чат</a>
+                        </li>
+                    </ul>
+                    <div class="dropdown open">
+                        <button class="btn dropdown-toggle header-btn-elem" type="button" id="dropdownEnterButton"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Войти
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownEnterButton">
+                            <form class="dropdown-item">
+                                <div class="form-group">
+                                    <label for="authLogin">Введите ваши логин и пароль</label>
+                                    <input type="text" class="form-control" id="authLogin" aria-describedby="authLoginHelp" placeholder="Логин">
+                                    <small id="authLoginHelp" class="form-text text-muted"></small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="Password">Пароль</label>
+                                    <input type="password" class="form-control" id="authPassword" placeholder="Пароль">
+                                </div>
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="authRememberMe">
+                                    <label class="form-check-label" for="authRememberMe">Запомнить меня</label>
+                                </div>
+                                <button type="submit" class="btn header-dropdown-btn">Войти</button>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <div class="container custom-container-shadow">
+        <div class="row line-bottom">
+            <div class="col text-center adt-name text-uppercase h1">
+                Название объявления
+            </div>
+        </div>
+        <div class="row adt-info">
+            <a class="adt-info-lbl col text-center" href="#">SSC</a>
+            <a class="adt-info-lbl col text-center" href="#">Tuatara</a>
+            <a class="adt-info-lbl col text-center" href="#">1.3 млн долларов</a>
+        </div>
+        <div class="row line-bottom" >
+            <div class ="adt-photos">
+                <div class="adt-photos-content flex-wrap">
+                    <img class="adt-photos-content-item" src="https://funpick.ru/wp-content/uploads/2018/03/krut-mash-6.jpg" width="300" height="200">
+                    <img class="adt-photos-content-item" src="https://pictureholiday.ru/wp-content/uploads/2018/05/1495023649_1-min.jpg" width="300" height="200">
+                    <img class="adt-photos-content-item" src="https://funpick.ru/wp-content/uploads/2018/03/krut-mash-3-e1521637286850.jpg" width="300" height="200">
+                    <img class="adt-photos-content-item" src="https://funpick.ru/wp-content/uploads/2018/03/krut-mash-6.jpg" width="300" height="200">
+                    <img class="adt-photos-content-item" src="https://pictureholiday.ru/wp-content/uploads/2018/05/1495023649_1-min.jpg" width="300" height="200">
+                    <img class="adt-photos-content-item" src="https://funpick.ru/wp-content/uploads/2018/03/krut-mash-3-e1521637286850.jpg" width="300" height="200">
+                    
+                </div>
+            </div>
+            <div class ="adt-description">
+                В интернете появилось видео c заездом американского гиперкара SSC Tuatara, который установил мировой рекорд скорости среди серийных автомобилей, отобрав звание быстрейшей в мире машины у Koenigsegg Agera RS. Ролик опубликовали в YouTube.
+
+Рекордную попытку предприняли в штате Невада на перекрытом 11-километровом отрезке трассы State Route 160 между городами Парамп и Лас-Вегас. Автомобиль под управлением британского гонщика Оливера Уэбба после первого старта смог разогнаться до 484 км/ч, а в обратном направлении — до 532,93 км в час.
+
+В итоговом протоколе в соответствии с требованиями Книги рекордов Гиннесса была зафиксирована средняя скорость автомобиля, которая составила 508,73 км в час. Согласно правилам, в зачет идет средний показатель скорости, достигнутой после двух стартов с противоположных сторон, поскольку условия во время заездов в разных направлениях мог значительно отличаться друг от друга. На максимальную скорость может влиять, например, наклон дороги, попутный ветер и другие критерии.
+
+Гиперкар SSC Tuatara был разработан фирмой Shelby Super Cars, основанной Джеродом Шелби в 1999 году. Купе массой всего 1250 кг оснащено 5,9-литровым мотором V8 с двумя турбинами, который при работе на биоэтаноле развивает 1750 л.с., а на обычном бензине с октановым числом 92 — 1350 лошадиных сил. Первую «сотню» гиперкар набирает за 2,5 сек., а заявленная максимальная скорость составляет 502 км в час.
+
+Прежний рекорд скорости среди серийных машин был установлен шведским Koenigsegg Agera RS с 1360-сильным двигателем. Осенью 2017 года на том же отрезке автострады в Неваде гиперкар смог показать среднюю скорости в 444,6 км в час.
+
+Американская фирма SSC North America подтвердила, что 10 октября профессиональный гонщик Оливер Уэбб за рулём гиперкара Tuatara установил новый рекорд скорости для серийных автомобилей. В двух заездах на 11-километровом отрезке автострады State Route 160 близ городка Пахрамп в Неваде он показал среднюю скорость 508,73 километра в час — это на 61,76 километра в час больше, чем здесь же смогли выжать из Koenigsegg Agera RS тремя годами ранее.
+                    
+            </div>
+        </div>
+        <div id="ownerRow" class="row">
+            <a class="col-md-3 adt-owner-avatar custom-a" href="D:/GitHUB/medicine_app/Фронт/OtherUserPage/OtherUserPage.html">
+                <img class="adt-owner-avatar" src="https://mir-avatarok.3dn.ru/_si/0/03342719.jpg" width="200" height="200">
+                <div id="ownerLogin" class="owner-login custom-a">
+                    Anton228
+                </div>
+            </a>
+            <div class="col-md-9 adt-owner-info">
+                <div class="adt-owner-info-private">
+                    <a id="ownerPhone" class="owner-info-elem custom-a custom-btn" href="tel:+79602281337">
+                        Позвонить
+                    </a>
+                    <a id="ownerEmail" class="owner-info-elem custom-a custom-btn" href="mailto:Anton228@gmail.com">
+                        Email
+                    </a> 
+                    <a id="messageOwner" class="owner-info-elem custom-a custom-btn">
+                        Чат
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="adt-footer-btns">
+            <button class="col adt-header-btn delete-adt-btn">
+                Удалить
+            </button>
+            <button class="col adt-header-btn block-adt-btn">
+                Заблокировать
+            </button>
+            <button class="col adt-header-btn save-adt-btn">
+                В избранное
+            </button>
+            <a class="col custom-a adt-header-btn change-adt-btn" href="">
+                Изменить
+            </a>
+        </div>
+    </div>
+</body>
+
+</html>

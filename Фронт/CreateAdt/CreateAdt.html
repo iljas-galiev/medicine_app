@@ -15,9 +15,8 @@
     <script src="D:\GitHUB\medicine_app\Фронт\Main.js"></script>
     <link rel="stylesheet" href="D:\GitHUB\medicine_app\Фронт\Main.css">
     <link rel="shortcut icon" href="https://gu-st.ru/content/situation_icons/car_sell.svg">
-    <title>"Машинки"</title>
+    <title>"Машины"</title>
 </head>
-
 <body>
     <div class="container-fluent bg-header fixed-top">
         <div id="header" class="container">
@@ -69,37 +68,21 @@
             </nav>
         </div>
     </div>
-    <div class="container custom-container">
-        <h3 class="text-center info-block">Заполните все поля и нажмите на кнопку "Зарегистрироваться". После этого Вам на электронную почту придёт сообщение для пожтверждения регистрации. Указывайте только настоящую информацию.</h3>
-        <form id="regForm">
-            <div class="form-group">
-              <label for="loginInput">Введите ваш логин</label>
-              <input type="text" class="form-control input-options" id="loginInput" aria-describedby="loginHelp" oninput="checkLogin()" name="login">
-              <small id="loginHelp" class="form-text second-text">Логин может содержать буквы английского алфавита и цифры от 0 до 9, он не может быть длиннее 12 символов. Логин должен быть уникальным</small> 
-            </div>
-            <div class="form-group">
-                <label for="emailInput">Введите ваш электронный почтовый адрес</label>
-                <input type="email" class="form-control input-options" id="emailInput" aria-describedby="emailHelp" name="email" oninput="checkEmail()">
-                <small id="emailHelp" class="form-text second-text">На этот адрес придёт письмо для подтверждения регистрации.</small>
-            </div>
-            <div class="form-group">
-                <label for="phoneInput">Введите ваш номер телефона</label>
-                <input type="text" class="form-control input-options" id="phoneInput" name="phone" oninput="checkPhone()">
-                <small id="phoneHelp" class="form-text second-text"></small>
-            </div>
-            <div class="form-group">
-                <label for="passwordInput1">Введите ваш пароль</label>
-                <input type="password" class="form-control input-options" id="passwordInput1" aria-describedby="passwordHelp1" oninput="checkPassword1()">
-                <small id="passwordHelp1" class="form-text second-text">Пароль может содержать буквы английского алфавита и цифры от 0 до 9. Минимальная длина пароля 8 символов, максимальная 16</small>
-            </div>
-            <div class="form-group">
-                <label for="passwordInput2">Повторите пароль</label>
-                <input type="password" class="form-control input-options" id="passwordInput2" oninput="checkSecondPasswordIsSimilarToFirst()" aria-describedby="passwordHelp2" name="password">
-                <small id="passwordHelp2" class="form-text second-text"></small>
-            </div>
-            <button type="button" class="btn custom-btn" onclick="sendForm()" aria-describedby="sendBtnHelp">Зарегистрироваться</button>
-            <small id="sendBtnHelp" class="form-text second-text"></small>
-          </form>
+    <div class="container custom-container-shadow">
+        <p class="create-adt-header text-uppercase">Создать объявление</p>
+        <form class="create-adt-form" method="POST" action="">
+            <input type="text" class="create-adt-input-name create-adt-form-item form-control input-options" name="name" placeholder="Название объявления">
+            <input type="text" class="create-adt-mark create-adt-form-item form-control input-options" name="mark" placeholder="Марка автомобиля">
+            <input type="text" class="create-adt-model create-adt-form-item form-control input-options" name="model" placeholder="Модель автомобиля">
+            <input type="text" class="create-adt-mark create-adt-form-item form-control input-options" name="price" placeholder="Цена">
+            <input id="adtCreatePhotoInput" type="file" class="create-adt-input-photos" name="photos" data-multiple-caption="{count} files selected" multiple accept=".jpg, .jpeg, .png">
+            <label for="adtCreatePhotoInput" class="create-adt-label-photos input-options">Добавить фотографии</label>
+            <label class="adt-create-label" for="adtCreateDescription">Опишите объявление</label>
+            <textarea id="adtCreateDescription" class="create-adt-description create-adt-form-item form-control input-options" name="description"></textarea>
+            <input type="text" class="create-adt-phone create-adt-form-item form-control input-options" name="phone" placeholder="Телефон пользователя, вставляется автоматически, можно поменять">
+            <input type="text" class="create-adt-email create-adt-form-item form-control input-options " name="email" placeholder="Почта пользователя, работает также как телефон">
+            <button class="create-adt-btn custom-btn">Подать объявление</button>
+        </form>
     </div>
 </body>
 
