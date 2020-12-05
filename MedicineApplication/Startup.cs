@@ -23,6 +23,7 @@ namespace MedicineApplication
 
             services.AddWebSocketManager();
 
+
             services.AddAuthentication(configureOptions =>
                 {
                     configureOptions.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
@@ -32,6 +33,8 @@ namespace MedicineApplication
                 {
                     options.LoginPath = new Microsoft.AspNetCore.Http.PathString("/auth/login");
                 });
+
+            services.AddAuthorization();
 
             services.AddSession();
         }
@@ -48,8 +51,8 @@ namespace MedicineApplication
 
             app.UseSession();
 
-            app.UseAuthorization();
             app.UseAuthentication();
+            app.UseAuthorization();
 
             app.UseWebSockets();
             app.MapWebSocketManager("/msg", serviceProvider.GetService<SocketService>());

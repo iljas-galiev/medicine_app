@@ -68,8 +68,6 @@
             <e p="_Layout.cshtml" t="Include" />
             <e p="_Nav.cshtml" t="Include" />
           </e>
-          <e p="Test.cshtml" t="Include" />
-          <e p="Test.cshtml.cs" t="Include" />
         </e>
         <e p="Program.cs" t="Include" />
         <e p="Properties" t="Include">
@@ -81,7 +79,6 @@
           <e p="css" t="Include">
             <e p="bootstrap.css" t="Include" />
             <e p="main.css" t="Include" />
-            <e p="main.js" t="Include" />
             <e p="site.css" t="Include" />
           </e>
           <e p="js" t="Include">
@@ -93,6 +90,7 @@
           <e p="sass" t="Include">
             <e p="site.scss" t="Include" />
           </e>
+          <e p="upload" t="Include" />
         </e>
       </e>
       <e p="MedicineApplication.sln" t="IncludeFlat" />

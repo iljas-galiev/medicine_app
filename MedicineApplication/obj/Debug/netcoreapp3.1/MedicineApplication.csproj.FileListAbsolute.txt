@@ -410,7 +410,6 @@ C:\Users\Admin\YandexDisk\Work\Edu\C#\medicine_app\MedicineApplication\obj\Debug
 C:\Users\Admin\YandexDisk\Work\Edu\C#\medicine_app\MedicineApplication\obj\Debug\netcoreapp3.1\Razor\Pages\Index.cshtml.g.cs
 C:\Users\Admin\YandexDisk\Work\Edu\C#\medicine_app\MedicineApplication\obj\Debug\netcoreapp3.1\Razor\Pages\Shared\_Layout.cshtml.g.cs
 C:\Users\Admin\YandexDisk\Work\Edu\C#\medicine_app\MedicineApplication\obj\Debug\netcoreapp3.1\Razor\Pages\Shared\_Nav.cshtml.g.cs
-C:\Users\Admin\YandexDisk\Work\Edu\C#\medicine_app\MedicineApplication\obj\Debug\netcoreapp3.1\Razor\Pages\Test.cshtml.g.cs
 C:\Users\Admin\YandexDisk\Work\Edu\C#\medicine_app\MedicineApplication\obj\Debug\netcoreapp3.1\Razor\Pages\_ViewStart.cshtml.g.cs
 C:\Users\Admin\YandexDisk\Work\Edu\C#\medicine_app\MedicineApplication\obj\Debug\netcoreapp3.1\MedicineApplication.RazorTargetAssemblyInfo.cache
 C:\Users\Admin\YandexDisk\Work\Edu\C#\medicine_app\MedicineApplication\obj\Debug\netcoreapp3.1\MedicineApplication.RazorTargetAssemblyInfo.cs

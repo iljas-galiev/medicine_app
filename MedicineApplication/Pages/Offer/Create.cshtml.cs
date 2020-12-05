@@ -6,6 +6,7 @@ namespace MedicineApplication.Pages.Offer
 {
     public class Create : PageModel
     {
+        public OfferEntity Offer = new OfferEntity();
         public string Title { get; set; }
         public string Model { get; set; }
         public string Brand { get; set; }
@@ -23,19 +24,17 @@ namespace MedicineApplication.Pages.Offer
 
         public void OnPost()
         {
-            var offer = new OfferEntity();
-
-            offer.Title = Title;
-            offer.Brand = Brand;
-            offer.Model = Model;
-            offer.Phone = Phone;
-            offer.Price = Convert.ToDouble(Price);
-            offer.Email = Email;
-            offer.Description = Description;
+            Offer.Title = Title;
+            Offer.Brand = Brand;
+            Offer.Model = Model;
+            Offer.Phone = Phone;
+            Offer.Price = Convert.ToDouble(Price);
+            Offer.Email = Email;
+            Offer.Description = Description;
 
             //photos
 
-            if ((new OfferRepository()).Save(offer))
+            if ((new OfferRepository()).Save(Offer))
             {
 
                 HttpContext.Response.StatusCode = 301;

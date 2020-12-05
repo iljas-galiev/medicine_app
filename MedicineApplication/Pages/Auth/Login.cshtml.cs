@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -26,7 +27,7 @@ namespace MedicineApplication.Pages.Auth
             }
         }
 
-        public async void OnPost(string Email, string Password)
+        public async void OnPost(string Email, string Password, string Remember)
         {
             if (HttpContext.Session.Keys.Contains("user"))
             {
@@ -45,8 +46,19 @@ namespace MedicineApplication.Pages.Auth
                 HttpContext.Session.SetString("user_email", user.Email.ToString());
                 HttpContext.Session.SetString("user_salt", user.Salt.ToString());
 
-                HttpContext.Response.Cookies.Append("user", user.Id.ToString());
-                HttpContext.Response.Cookies.Append("__code", Core.User.ComputeHash(user.Id.ToString() + user.Salt));
+
+                if (Remember == "on")
+                {
+                    HttpContext.Response.Cookies.Append("user",
+                        user.Id.ToString(),
+                        new CookieOptions() {Expires = DateTime.Now.AddMonths(1)}
+                    );
+                    HttpContext.Response.Cookies.Append("__code",
+                        Core.User.ComputeHash(user.Id.ToString() + user.Salt)
+                        , new CookieOptions() {Expires = DateTime.Now.AddMonths(1)}
+                    );
+                }
+
                 await Auth(user);
 
                 HttpContext.Response.StatusCode = 301;
