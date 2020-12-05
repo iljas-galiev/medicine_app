@@ -1,9 +1,13 @@
 using System;
+using System.Linq;
+using LinqToDB;
 using MedicineApplication.Core;
+using MedicineApplication.Model.User;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using WebSocketManager;
 
@@ -51,14 +55,22 @@ namespace MedicineApplication
             app.MapWebSocketManager("/msg", serviceProvider.GetService<SocketService>());
 
 
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapRazorPages();
-            });
+            app.UseEndpoints(endpoints => { endpoints.MapRazorPages(); });
 
             app.Run(async (context) =>
             {
-
+                if (context.Request.Cookies.ContainsKey("user"))
+                {
+                    context.Request.Cookies.TryGetValue("user", out string user);
+                    context.Request.Cookies.TryGetValue("__code", out string code);
+                    var userEntity = Db.Dc.GetTable<UserEntity>().FirstOrDefault(u => u.Id == Convert.ToInt32(user));
+                    if (userEntity.Id != 0 && code == Core.User.ComputeHash(userEntity.Id.ToString() + userEntity.Salt))
+                    {
+                        context.Session.SetString("user", userEntity.Id.ToString());
+                        context.Session.SetString("user_email", userEntity.Email.ToString());
+                        context.Session.SetString("user_salt", userEntity.Salt.ToString());
+                    }
+                }
             });
         }
     }

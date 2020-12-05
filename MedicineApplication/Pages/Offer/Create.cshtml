@@ -1,0 +1,20 @@
+﻿@page
+@model MedicineApplication.Pages.Offer.Create
+
+@{
+    Layout = Layout;
+}
+<p class="create-adt-header text-uppercase">Создать объявление</p>
+<form class="create-adt-form" method="POST" action="">
+    <input  type="text" class="create-adt-input-name create-adt-form-item form-control input-options" name="name" placeholder="Название объявления">
+    <input type="text" class="create-adt-mark create-adt-form-item form-control input-options" name="brand" placeholder="Марка автомобиля">
+    <input type="text" class="create-adt-model create-adt-form-item form-control input-options" name="model" placeholder="Модель автомобиля">
+    <input type="text" class="create-adt-mark create-adt-form-item form-control input-options" name="price" placeholder="Цена">
+    <input id="adtCreatePhotoInput" type="file" class="create-adt-input-photos" name="photos" data-multiple-caption="{count} files selected" multiple accept=".jpg, .jpeg, .png">
+    <label for="adtCreatePhotoInput" class="create-adt-label-photos input-options">Добавить фотографии</label>
+    <label class="adt-create-label" for="adtCreateDescription">Опишите объявление</label>
+    <textarea id="adtCreateDescription" class="create-adt-description create-adt-form-item form-control input-options" name="description"></textarea>
+    <input type="text" class="create-adt-phone create-adt-form-item form-control input-options" name="phone" placeholder="Телефон пользователя, вставляется автоматически, можно поменять">
+    <input type="text" class="create-adt-email create-adt-form-item form-control input-options " name="email" placeholder="Почта пользователя, работает также как телефон">
+    <button class="create-adt-btn custom-btn">Подать объявление</button>
+</form>

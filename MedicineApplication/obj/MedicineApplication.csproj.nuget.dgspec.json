@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Admin\\source\\repos\\MedicineApplication\\MedicineApplication\\MedicineApplication.csproj": {}
+    "C:\\Users\\Admin\\YandexDisk\\Work\\Edu\\C#\\medicine_app\\MedicineApplication\\MedicineApplication.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Admin\\source\\repos\\MedicineApplication\\MedicineApplication\\MedicineApplication.csproj": {
+    "C:\\Users\\Admin\\YandexDisk\\Work\\Edu\\C#\\medicine_app\\MedicineApplication\\MedicineApplication.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Admin\\source\\repos\\MedicineApplication\\MedicineApplication\\MedicineApplication.csproj",
+        "projectUniqueName": "C:\\Users\\Admin\\YandexDisk\\Work\\Edu\\C#\\medicine_app\\MedicineApplication\\MedicineApplication.csproj",
         "projectName": "MedicineApplication",
-        "projectPath": "C:\\Users\\Admin\\source\\repos\\MedicineApplication\\MedicineApplication\\MedicineApplication.csproj",
+        "projectPath": "C:\\Users\\Admin\\YandexDisk\\Work\\Edu\\C#\\medicine_app\\MedicineApplication\\MedicineApplication.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Admin\\source\\repos\\MedicineApplication\\MedicineApplication\\obj\\",
+        "outputPath": "C:\\Users\\Admin\\YandexDisk\\Work\\Edu\\C#\\medicine_app\\MedicineApplication\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",

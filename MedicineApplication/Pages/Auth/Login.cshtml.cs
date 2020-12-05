@@ -44,6 +44,9 @@ namespace MedicineApplication.Pages.Auth
                 HttpContext.Session.SetString("user", user.Id.ToString());
                 HttpContext.Session.SetString("user_email", user.Email.ToString());
                 HttpContext.Session.SetString("user_salt", user.Salt.ToString());
+
+                HttpContext.Response.Cookies.Append("user", user.Id.ToString());
+                HttpContext.Response.Cookies.Append("__code", Core.User.ComputeHash(user.Id.ToString() + user.Salt));
                 await Auth(user);
 
                 HttpContext.Response.StatusCode = 301;

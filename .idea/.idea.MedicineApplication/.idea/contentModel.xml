@@ -4,8 +4,8 @@
     <e p="C:\Users\Admin\.Rider2019.2\config\consoles\db" t="IncludeRecursive" />
     <e p="C:\Users\Admin\.Rider2019.2\config\scratches" t="IncludeRecursive" />
     <e p="C:\Users\Admin\.Rider2019.2\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\Admin\.Rider2019.2\system\resharper-host\local\Transient\Rider\v202\SolutionCaches\_MedicineApplication.-664655154.00" t="ExcludeRecursive" />
-    <e p="C:\Users\Admin\source\repos\MedicineApplication" t="IncludeFlat">
+    <e p="C:\Users\Admin\.Rider2019.2\system\resharper-host\local\Transient\Rider\v202\SolutionCaches\_MedicineApplication.930377603.00" t="ExcludeRecursive" />
+    <e p="C:\Users\Admin\YandexDisk\Work\Edu\C#\medicine_app" t="IncludeFlat">
       <e p="MedicineApplication" t="IncludeRecursive">
         <e p="appsettings.Development.json" t="Include" />
         <e p="appsettings.json" t="Include" />
@@ -24,6 +24,10 @@
             <e p="MessageContent.cs" t="Include" />
             <e p="MessageEntity.cs" t="Include" />
             <e p="MessageRepository.cs" t="Include" />
+          </e>
+          <e p="Offer" t="Include">
+            <e p="OfferEntity.cs" t="Include" />
+            <e p="OfferRepository.cs" t="Include" />
           </e>
           <e p="User" t="Include">
             <e p="UserEntity.cs" t="Include" />
@@ -52,6 +56,14 @@
           </e>
           <e p="Index.cshtml" t="Include" />
           <e p="Index.cshtml.cs" t="Include" />
+          <e p="Offer" t="Include">
+            <e p="Create.cshtml" t="Include" />
+            <e p="Create.cshtml.cs" t="Include" />
+          </e>
+          <e p="Profile" t="Include">
+            <e p="Offers.cshtml" t="Include" />
+            <e p="Offers.cshtml.cs" t="Include" />
+          </e>
           <e p="Shared" t="Include">
             <e p="_Layout.cshtml" t="Include" />
             <e p="_Nav.cshtml" t="Include" />
@@ -68,11 +80,14 @@
           <e p="config.rb" t="Include" />
           <e p="css" t="Include">
             <e p="bootstrap.css" t="Include" />
+            <e p="main.css" t="Include" />
+            <e p="main.js" t="Include" />
             <e p="site.css" t="Include" />
           </e>
           <e p="js" t="Include">
             <e p="bootstrap.js" t="Include" />
             <e p="jquery.js" t="Include" />
+            <e p="main.js" t="Include" />
             <e p="site.js" t="Include" />
           </e>
           <e p="sass" t="Include">

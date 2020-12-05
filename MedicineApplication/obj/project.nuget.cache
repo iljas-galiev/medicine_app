@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "RuukXJA9pyPqYm2NruGzrZ7UBKMtWZeh/gK1gHbcjXygpN4igK/8rOcUEZJx4a6aCGYfpGRYEYtKNBQSzfoGSw==",
+  "dgSpecHash": "HBwkeGJxVkbZyvzFIofYdDg2jwaorl/bAGoGIBx5SZudLDGi8CQMaOO6i0PYiirMdhqSDUsb41sRhgHQBUarag==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Admin\\source\\repos\\MedicineApplication\\MedicineApplication\\MedicineApplication.csproj",
+  "projectFilePath": "C:\\Users\\Admin\\YandexDisk\\Work\\Edu\\C#\\medicine_app\\MedicineApplication\\MedicineApplication.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Admin\\.nuget\\packages\\bouncycastle.netcore\\1.8.3\\bouncycastle.netcore.1.8.3.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\google.protobuf\\3.6.1\\google.protobuf.3.6.1.nupkg.sha512",
