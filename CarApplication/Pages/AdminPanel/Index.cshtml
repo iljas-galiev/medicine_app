@@ -1,0 +1,35 @@
+﻿@page
+@using CarApplication.Model.Offer
+@model CarApplication.Pages.AdminPanel.Index
+
+@{
+    Layout = Layout;
+}
+
+<ul class="admin-panel-adt-list">
+    @{
+        if (Model.OfferEntities != null)
+        {
+            foreach (var offerEntity in Model.OfferEntities)
+            {
+
+                <li class="admin-panel-adt-list-item">
+                    <div class="admin-panel-adt-name">
+                        @offerEntity.Title
+                    </div>
+                    <div class="admin-panel-adt-btns">
+                        <button class="adt-header-btn custom-btn">
+                            Просмотреть
+                        </button>
+                        <button class="adt-header-btn delete-adt-btn">
+                            Удалить
+                        </button>
+                        <button class="adt-header-btn block-adt-btn">
+                            Заблокировать
+                        </button>
+                    </div>
+                </li>
+            }
+        }
+    }
+</ul>

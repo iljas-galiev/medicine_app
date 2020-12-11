@@ -1,0 +1,103 @@
+﻿@page
+@using CarApplication.Model.Offer
+@model CarApplication.Pages.Profile.Offers
+
+@{
+    Layout = Layout;
+    ViewData["Title"] = "Мои объявления";
+}
+
+
+<div class="saved-adts-header h1 text-center">Мои объявления</div>
+<div id="adt-content" class="row">
+    <select id="adt-selector" class="browser-default custom-select">
+        <option
+            @if (Model.Filter == 1)
+            {
+                Write("selected");
+            }
+            value="1">
+            Активные
+        </option>
+        <option
+            @if (Model.Filter == -1)
+            {
+                Write("selected");
+            }
+            value="-1">
+            Отключенные
+        </option>
+    </select>
+    <ul class="adt-ul max-height-none">
+        @{
+            if (Model.MyOffers == null || !Model.MyOffers.Any())
+            {
+                <h1 class="text-center text-danger">Объявлений нет</h1>
+            }
+            else
+            {
+                foreach (var offerEntity in Model.MyOffers)
+                {
+                    <li class="adt-li">
+                        <a class="custom-a adt-li-contents" href="/offer/view?id=@offerEntity.Id">
+                            <div class="adt-li-name">
+                                @offerEntity.Title
+                            </div>
+                            <div class="adt-li-info">
+                                <div class="adt-li-info-item">
+                                    @offerEntity.Brand
+                                </div>
+                                <div class="adt-li-info-item">
+                                    @offerEntity.Model
+                                </div>
+                                <div class="adt-li-info-item">
+                                    @offerEntity.Price руб.
+                                </div>
+                            </div>
+                        </a>
+                        <div class="adt-status">
+                            @if (offerEntity.Status == OfferEntity.New)
+                            {
+                                <span class="text-primary">На модерации</span>
+                            }
+                            @if (offerEntity.Status == OfferEntity.Active)
+                            {
+                                <span class="text-success">Активно</span>
+                            }
+                            @if (offerEntity.Status == OfferEntity.Block)
+                            {
+                                <span class="text-warning">Отключено</span>
+                            }
+                            @if (offerEntity.Status == OfferEntity.BlockAdmin)
+                            {
+                                <span class="text-danger">Заблокировано администрацией</span>
+                            }
+                        </div>
+                        <div class="adt-footer-btns">
+                            <button class="col adt-header-btn delete-adt-btn" data-id="@offerEntity.Id">
+                                Удалить
+                            </button>
+
+                            @if (offerEntity.Status >= OfferEntity.New)
+                            {
+                                <button class="col adt-header-btn block-adt-btn" data-id="@offerEntity.Id" data-status="0">
+                                    Отключить
+                                </button>
+                            }
+
+                            @if (offerEntity.Status == OfferEntity.Block)
+                            {
+                                <button class="col adt-header-btn block-adt-btn" data-id="@offerEntity.Id" data-status="1">
+                                    Включить
+                                </button>
+                            }
+                            <a class="col custom-a adt-header-btn change-adt-btn" href="/offer/edit?id=@offerEntity.Id">
+                                Изменить
+                            </a>
+                        </div>
+                    </li>
+                }
+            }
+        }
+    </ul>
+</div>

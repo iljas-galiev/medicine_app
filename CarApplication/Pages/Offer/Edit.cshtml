@@ -1,0 +1,49 @@
+﻿@page
+@model CarApplication.Pages.Offer.Edit
+
+@{
+    Layout = Layout;
+    ViewData["Title"] = "Редактировать объявление";
+}
+
+<p class="create-adt-header text-uppercase">Редактировать объявление</p>
+<form class="create-adt-form" method="POST" action="" enctype="multipart/form-data">
+    @Html.AntiForgeryToken()
+    @{
+        if (Model.Offer.Errors.Count > 0)
+        {
+            <div class="alert alert-danger">
+                <ul>
+                    @{
+                        foreach (var error in Model.Offer.Errors)
+                        {
+                            <li>@error.Key: @error.Value</li>
+                        }
+                    }
+                </ul>
+            </div>
+        }
+    }
+
+    <input value="@Model.Offer.Title" type="text" class="create-adt-input-name create-adt-form-item form-control input-options" name="title" placeholder="Название объявления">
+
+    <input value="@Model.Offer.Brand" type="text" class="create-adt-mark create-adt-form-item form-control input-options" name="brand" placeholder="Марка автомобиля">
+
+    <input value="@Model.Offer.Model" type="text" class="create-adt-model create-adt-form-item form-control input-options" name="model" placeholder="Модель автомобиля">
+
+    <input value="@Model.Offer.Price" type="text" class="create-adt-mark create-adt-form-item form-control input-options" name="price" placeholder="Цена">
+
+    <input multiple id="adtCreatePhotoInput" type="file" class="create-adt-input-photos" name="uploads">
+    <label for="adtCreatePhotoInput" class="create-adt-label-photos input-options">Добавить фотографии</label>
+
+    <label class="adt-create-label" for="adtCreateDescription">Описание</label>
+    <textarea id="adtCreateDescription" class="create-adt-description create-adt-form-item form-control input-options" name="description">
+            @Model.Offer.Description
+        </textarea>
+
+    <input value="@Model.Offer.Phone" type="text" class="create-adt-phone create-adt-form-item form-control input-options" name="phone" placeholder="Телефон">
+
+    <input value="@Model.Offer.Email" type="text" class="create-adt-email create-adt-form-item form-control input-options " name="email" placeholder="E-mail">
+
+    <button class="create-adt-btn custom-btn">Сохранить изменения</button>
+</form>

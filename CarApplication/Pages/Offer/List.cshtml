@@ -1,0 +1,29 @@
+﻿@page
+@model CarApplication.Pages.Offer.List
+
+@{
+    Layout = Layout;
+    ViewData["Title"] = "Объявления";
+}
+
+
+<div class="row max-height-inherit">
+    <div class="col-md-3 right-line max-height-inherit">
+        <div id="filtersHeader" class="text-center">Фильтры</div>
+        <form class="search-filters filter-form" method="get" action="">
+            <input value="@Model.Brand" type="text" class="brand-filter search-filters-item form-control input-options" placeholder="Марка автомобиля" name="brand">
+            <input value="@Model.Model" type="text" class="model-filter search-filters-item form-control input-options" placeholder="Модель автомобиля" name="model">
+            <input value="@Model.Price" type="text" class="price-filter search-filters-item form-control input-options" placeholder="Максимальная цена" name="price">
+            <button class="search-btn-filters">
+                Применить фильтры
+            </button>
+        </form>
+    </div>
+    <div class="col-md-9 search-content max-height-inherit">
+        <form class="search-area row filter-form" method="get" action="">
+            <input value="@Model.Search" class="search-area-input form-control col-md-9 input-options" type="text" placeholder="Найти объявление по названию" name="search">
+            <button class="search-btn col">Найти</button>
+        </form>
+        <div class="content-box"></div>
+    </div>
+</div>

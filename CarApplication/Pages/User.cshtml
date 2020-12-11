@@ -1,0 +1,52 @@
+﻿@page
+@model CarApplication.Pages.User
+@if (Model.UserEntity != null)
+{
+    ViewData["Title"] = $"Пользователь {Model.UserEntity.Name}";
+    <div id="otherUserRow" class="row line-bottom">
+        <div class="col-md-3 adt-owner-avatar">
+            <img class="adt-owner-avatar" src="@Model.UserEntity.Image" width="200" height="200">
+            <div id="ownerLogin" class="owner-login">
+                @Model.UserEntity.Name
+            </div>
+        </div>
+        <div class="col-md-9 adt-owner-info">
+            <div class="adt-owner-info-private">
+                <div id="userPhone" class="owner-info-elem">
+                    @Model.UserEntity.Phone
+                </div>
+                <div id="ownerEmail" class="owner-info-elem">
+                    @Model.UserEntity.Email
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="adt-content" class="row">
+        <ul class="adt-ul max-height-none">
+            @if (Model.Offers != null)
+            {
+                foreach (var Offer in Model.Offers)
+                {
+                    <li class="adt-li">
+                        <a class="custom-a adt-li-contents" href="/offer/view?id=@Offer.Id">
+                            <div class="adt-li-name">
+                                @Offer.Title
+                            </div>
+                            <div class="adt-li-info">
+                                <div class="adt-li-info-item">
+                                    @Offer.Brand
+                                </div>
+                                <div class="adt-li-info-item">
+                                    @Offer.Model
+                                </div>
+                                <div class="adt-li-info-item">
+                                    @Offer.Price руб.
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                }
+            }
+        </ul>
+    </div>
+}

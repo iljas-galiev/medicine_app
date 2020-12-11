@@ -1,0 +1,66 @@
+﻿@page
+@model CarApplication.Pages.Profile.Security
+
+@{
+    Layout = Layout;
+    ViewData["Title"] = "Безопасность";
+}
+
+<div class="row">
+
+    @Html.Partial("_Nav")
+    <div class="col-md-8">
+        <div class="right-content">
+            <div class="right-content-header">
+                Безопасность
+            </div>
+            <ul class="right-content-list container-fluent">
+                <li class="right-content-list-item">
+                    <div class="container-fluent">
+                        @{
+                            if (Model.Profile.Errors.Count > 0)
+                            {
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @{
+                                            foreach (var error in Model.Profile.Errors)
+                                            {
+                                                <li>@error.Key: @error.Value</li>
+                                            }
+                                        }
+                                    </ul>
+                                </div>
+                            }
+                            if (Model.Saved > 0)
+                            {
+                                <div class="alert alert-success">
+                                    Сохранено
+                                </div>
+                            }
+                        }
+                        <form id="newPasswordForm" class="form-group" method="POST" action="">
+                            @Html.AntiForgeryToken()
+                            <div class="form-group">
+                                <label for="oldPasswordInput">Введите ваш старый пароль</label>
+                                <input type="password" class="form-control input-options" id="oldPasswordInput" name="oldPassword">
+                            </div>
+                            <div class="form-group">
+                                <label for="newPasswordInput1">Введите новый пароль</label>
+                                <input name="newPassword" type="password" class="form-control input-options" id="newPasswordInput1" aria-describedby="newPasswordHelp1">
+                                <small id="newPasswordHelp1" class="form-text second-text">Пароль может содержать буквы английского алфавита и цифры от 0 до 9. Минимальная длина пароля 8 символов, максимальная 16</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="newPasswordInput2">Повторите пароль</label>
+                                <input name="newPasswordRepeat" type="password" class="form-control input-options" id="newPasswordInput2" aria-describedby="newPasswordHelp2">
+                                <small id="newPasswordHelp2" class="form-text second-text"></small>
+                            </div>
+                            <button type="submit" class="btn personal-area-btn custom-btn" aria-describedby="refreshPasswordBtnHelp">Сохранить</button>
+                            <small id="refreshPasswordBtnHelp" class="form-text second-text"></small>
+                        </form>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</div>

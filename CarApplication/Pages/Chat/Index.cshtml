@@ -1,0 +1,91 @@
+﻿@page
+@using CarApplication.Model.Offer
+@using CarApplication.Model.User
+@using Microsoft.AspNetCore.Http
+@model CarApplication.Pages.Chat.Index
+
+@{
+    Layout = Layout;
+}
+<div class="row">
+    <div class="col-md-3 right-line">
+        <ul class="chats-list">
+            @{
+                foreach (var conversation in Model.conversationList)
+                {
+                    conversation.TryGetValue("offer_id", out string offer);
+                    Model.offerList.TryGetValue(Convert.ToInt32(offer), out OfferEntity offerEntity);
+                    Model.userOfferList.TryGetValue(Convert.ToInt32(offer), out UserEntity userEntity);
+                    <li class="chats-list-item" onclick="loadChat(@offer)">
+                        <div class="chat-adt-name">
+
+                            @offerEntity.Title
+                        </div>
+                        <div class="chat-user-info">
+                            <div>
+                                <img class="chat-user-small-avatar" src="@userEntity.Image" width="40" height="40">
+                            </div>
+                            <div class="chat-user-login">
+                                @userEntity.Name
+                            </div>
+                        </div>
+                    </li>
+                }
+            }
+
+        </ul>
+    </div>
+    <div class="col-md-9">
+        @{
+            if (Model.Offer == null)
+            {
+                <h1 class="text-center text-danger mt-5">Выберите диалог</h1>
+            }
+            else
+            {
+                <p class="text-center chat-messages-header line-bottom">@Model.Offer.Title</p>
+                <ul class="messages">
+                    @{
+                        if (Model.Messages != null)
+                        {
+                            foreach (var message in Model.Messages)
+                            {
+                                <li class="message
+                                @{
+                                    if (message.userId == Model.user)
+                                    {
+                                        Write("my-message");
+                                    }
+                                }
+                                ">
+                                    <div class="message-user-info">
+                                        <img class="chat-user-small-avatar" src="@message.userImage" width="40" height="40">
+                                        <div class="chat-user-login">
+                                            @message.userName
+                                        </div>
+                                    </div>
+                                    <div class="message-text">
+                                        @message.text
+                                    </div>
+                                    <div class="message-datetime">
+                                        @message.dateTime
+                                    </div>
+                                </li>
+                            }
+                        }
+                    }
+                </ul>
+                @if (Model.Offer.Status == OfferEntity.Active)
+                {
+                    <form class="d-flex-row chat-form" method="post">
+                        @Html.AntiForgeryToken()
+                        <input id="sendMsgInput" type="text" placeholder="Введите сообщение" name="message" class="form-control input-options">
+                        <button id="sendMsgBtn" class="custom-btn" type="submit">Отправить</button>
+                    </form>
+                }
+            }
+
+        }
+
+    </div>
+</div>

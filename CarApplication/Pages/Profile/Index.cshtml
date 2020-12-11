@@ -1,0 +1,77 @@
+﻿@page
+@model CarApplication.Pages.Profile.Index
+
+@{
+    Layout = Layout;
+    ViewData["Title"] = "Настройки профиля";
+}
+
+<div class="row">
+    @Html.Partial("_Nav")
+    <div class="col-md-8">
+        <div class="right-content">
+            <div class="right-content-header">
+                Настройки профиля
+            </div>
+            <ul class="right-content-list">
+                @{
+                    if (Model.Profile.Errors.Count > 0)
+                    {
+                        <div class="alert alert-danger">
+                            <ul>
+                                @{
+                                    foreach (var error in Model.Profile.Errors)
+                                    {
+                                        <li>@error.Key: @error.Value</li>
+                                    }
+                                }
+                            </ul>
+                        </div>
+                    }
+                    if (Model.Saved > 0)
+                    {
+                        <div class="alert alert-success">
+                            Сохранено
+                        </div>
+                    }
+                }
+                <li class="right-content-list-item">
+                    <div class="container-fluent">
+                        <form id="newEmailForm" class="form-group" method="POST" action="">
+                            @Html.AntiForgeryToken()
+                            <label for="emailInput">Поменять адрес электронной почты</label>
+                            <input value="@Model.Profile.Email" type="text" class="form-control input-options" id="emailInput" aria-describedby="newEmailHelp" name="email">
+                            <small id="emailHelp" class="form-text second-text"></small>
+                            <button type="button" class="btn personal-area-btn custom-btn" onclick="sendNewEmailForm()" aria-describedby="refreshEmailBtnHelp">Сохранить</button>
+                            <small id="refreshEmailBtnHelp" class="form-text second-text"></small>
+                        </form>
+                    </div>
+                </li>
+                @*<li class="right-content-list-item">
+                    <div class="container-fluent">
+                        <form id="newLoginForm" class="form-group" method="post">
+                            <label for="newLoginInput">Поменять логин</label>
+                            <input type="text" class="form-control input-options" id="newLoginInput" aria-describedby="newLoginHelp" oninput="checkNewLogin()" name="newLogin">
+                            <small id="newLoginHelp" class="form-text second-text">Логин может содержать буквы английского алфавита и цифры от 0 до 9, он не может быть длиннее 12 символов. Логин должен быть уникальным</small>
+                            <button type="button" class="btn personal-area-btn custom-btn" onclick="sendnewLoginForm()" aria-describedby="refreshLoginBtnHelp">Обновить логин</button>
+                            <small id="refreshLoginBtnHelp" class="form-text second-text"></small>
+                        </form>
+                    </div>
+                </li>*@
+                <li class="right-content-list-item">
+                    <div class="container-fluent">
+                        <form id="newAvatarForm" class="form-group" method="POST" action="" enctype="multipart/form-data">
+
+                            @Html.AntiForgeryToken()
+                            <input type="file" class="create-adt-input-photos" id="newAvatarInput" aria-describedby="newAvatarHelp" name="avatar">
+                            <label for="newAvatarInput" class="create-adt-label-photos">Сменить аватар</label>
+                            <small id="newAvatarHelp" class="form-text second-text"></small>
+                            <button type="submit" class="btn personal-area-btn custom-btn" aria-describedby="refreshAvatarBtnHelp">Сохранить</button>
+                            <small id="refreshAvatarBtnHelp" class="form-text second-text"></small>
+                        </form>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

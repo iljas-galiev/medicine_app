@@ -1,0 +1,65 @@
+﻿@page
+@model CarApplication.Pages.Profile.Data
+
+@{
+    Layout = Layout;
+    ViewData["Title"] = "Персональные данные";
+}
+
+<div class="row">
+
+    @Html.Partial("_Nav")
+    <div class="col-md-8">
+        <div class="right-content">
+            <div class="right-content-header">
+                Персональные данные
+            </div>
+            <ul class="right-content-list">
+                @{
+                    if (Model.Profile.Errors.Count > 0)
+                    {
+                        <div class="alert alert-danger">
+                            <ul>
+                                @{
+                                    foreach (var error in Model.Profile.Errors)
+                                    {
+                                        <li>@error.Key: @error.Value</li>
+                                    }
+                                }
+                            </ul>
+                        </div>
+                    }
+                    if (Model.Saved > 0)
+                    {
+                        <div class="alert alert-success">
+                            Сохранено
+                        </div>
+                    }
+                }
+                <li class="right-content-list-item">
+                    <div class="container-fluent">
+                        <form id="newNameForm" class="form-group" method="POST" action="">
+                            @Html.AntiForgeryToken()
+                            <label for="newPhoneInput">Поменять имя</label>
+                            <input value="@Model.Profile.Name" type="text" class="form-control input-options" id="newNameInput" name="name">
+                            <small id="newNameHelp" class="form-text second-text"></small>
+                            <button type="button" class="btn personal-area-btn custom-btn" onclick="sendNewNameForm()" aria-describedby="refreshPhoneBtnHelp">Сохранить</button>
+                        </form>
+                    </div>
+                </li>
+                <li class="right-content-list-item">
+                    <div class="container-fluent">
+                        <form id="newPhoneForm" class="form-group" method="POST" action="">
+                            @Html.AntiForgeryToken()
+                            <label for="newPhoneInput">Поменять номер телефона</label>
+                            <input value="@Model.Profile.Phone" type="text" class="form-control input-options" id="newPhoneInput" aria-describedby="newPhoneHelp" name="phone">
+                            <small id="newPhoneHelp" class="form-text second-text"></small>
+                            <button type="button" class="btn personal-area-btn custom-btn" onclick="sendNewPhoneForm()" aria-describedby="refreshPhoneBtnHelp">Сохранить</button>
+                            <small id="refreshPhoneBtnHelp" class="form-text second-text"></small>
+                        </form>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

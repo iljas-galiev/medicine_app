@@ -1,0 +1,51 @@
+﻿@page
+@model CarApplication.Pages.Index
+@{
+    Layout = Layout;
+    ViewData["Title"] = "Машины - КФУ";
+}
+
+<div id="lastAdts">
+    <p class="text-center h3">Последние объявления</p>
+    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            @{
+                int i = 0;
+                foreach (var offer in Model.OfferList)
+                {
+                    <div class="carousel-item @(i == 0 ? "active" : "")">
+                        <a class="main-page-adt-card custom-a"
+                           href="/offer/view?id=@offer.Id">
+                            <div class="main-page-adt-card-header">@offer.Title</div>
+                            <div class="main-page-adt-info">
+                                <div class="main-page-adt-info-elem">@offer.Brand</div>
+                                <div class="main-page-adt-info-elem">@offer.Model</div>
+                                <div class="main-page-adt-info-elem">@offer.Price руб.</div>
+                            </div>
+                            <div class="adt-photos-content flex-wrap">
+                                <img class="adt-photos-content-item"
+                                     src="@offer.MainPicture" width="300"
+                                     height="200">
+                            </div>
+                        </a>
+                    </div>
+                    {
+                        i++;
+                    }
+                }
+            }
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+</div>
+<div id="webSiteDescription">
+    <p class="text-center h3">Несколько слов об этом сайте</p>
+    <div class="text-label text-center">На нашем сайте вы можете разместить объявление и продать свой автомобиль.</div>
+</div>

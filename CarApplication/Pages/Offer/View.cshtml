@@ -1,0 +1,109 @@
+﻿@page
+@using CarApplication.Model.Offer
+@using Microsoft.AspNetCore.Http
+@model CarApplication.Pages.Offer.View
+
+@{
+    Layout = Layout;
+    ViewData["Title"] = @Model.Offer.Title;
+}
+<div class="row line-bottom">
+    <div class="col text-center adt-name text-uppercase h1">
+        @Model.Offer.Title
+    </div>
+</div>
+<div class="row adt-info">
+    <a class="adt-info-lbl col text-center" href="#">
+        @Model.Offer.Brand</a>
+    <a class="adt-info-lbl col text-center" href="#">
+        @Model.Offer.Model</a>
+    <a class="adt-info-lbl col text-center" href="#">
+        @Model.Offer.Price руб.
+    </a>
+</div>
+<div class="row line-bottom">
+    <div class="adt-photos">
+        <div class="adt-photos-content flex-wrap">
+            @if (@Model.Offer.MainPicture != null)
+            {
+                <img class="adt-photos-content-item" src="@Model.Offer.MainPicture" width="300" height="200">
+            }
+            @{
+                if (Model.OfferImages != null)
+                {
+                    foreach (var image in Model.OfferImages)
+                    {
+                        <img class="adt-photos-content-item" src="@image.Image" width="300" height="200">
+                    }
+                }
+            }
+
+        </div>
+    </div>
+    <div class="adt-description">
+        @Model.Offer.Description
+    </div>
+</div>
+<div id="ownerRow" class="row">
+    <a class="col-md-3 adt-owner-avatar custom-a" href="/user?id=@Model.User.Id">
+        <img class="adt-owner-avatar" src="@Model.User.Image" width="200" height="200">
+        <div id="ownerLogin" class="owner-login custom-a">
+            @Model.User.Name
+        </div>
+    </a>
+    <div class="col-md-9 adt-owner-info">
+        <div class="adt-owner-info-private">
+            <a id="ownerPhone" class="owner-info-elem custom-a custom-btn" href="tel:@Model.User.Phone">
+                Позвонить
+            </a>
+            <a id="ownerEmail" class="owner-info-elem custom-a custom-btn" href="mailto:@Model.User.Email">
+                Email
+            </a>
+            <a id="messageOwner" href="/chat?offer=@Model.Offer.Id" class="owner-info-elem custom-a custom-btn">
+                Чат
+            </a>
+        </div>
+    </div>
+</div>
+<div class="adt-footer-btns">
+    @if (Model.Offer.UserId == Convert.ToInt32(HttpContext.Session.GetString("user")))
+    {
+        <button class="col adt-header-btn delete-adt-btn" data-id="@Model.Offer.Id">
+            Удалить
+        </button>
+        @if (Model.Offer.Status >= OfferEntity.New)
+        {
+            <button class="col adt-header-btn block-adt-btn" data-id="@Model.Offer.Id" data-status="0">
+                Отключить
+            </button>
+        }
+
+        @if (Model.Offer.Status == OfferEntity.Block)
+        {
+            <button class="col adt-header-btn block-adt-btn" data-id="@Model.Offer.Id" data-status="1">
+                Включить
+            </button>
+        }
+        <a class="col custom-a adt-header-btn change-adt-btn" href="/offer/edit?id=@Model.Offer.Id">
+            Изменить
+        </a>
+        <div style="width: 100%">
+            @if (Model.Offer.Status == OfferEntity.New)
+            {
+                <span class="text-primary">На модерации</span>
+            }
+            @if (Model.Offer.Status == OfferEntity.Active)
+            {
+                <span class="text-success">Активно</span>
+            }
+            @if (Model.Offer.Status == OfferEntity.Block)
+            {
+                <span class="text-warning">Отключено</span>
+            }
+            @if (Model.Offer.Status == OfferEntity.BlockAdmin)
+            {
+                <span class="text-danger">Заблокировано администрацией</span>
+            }
+        </div>
+    }
+</div>

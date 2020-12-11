@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\Admin\.Rider2019.2\config\consoles\db" t="IncludeRecursive" />
-    <e p="C:\Users\Admin\.Rider2019.2\config\scratches" t="IncludeRecursive" />
-    <e p="C:\Users\Admin\.Rider2019.2\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\Admin\.Rider2019.2\system\resharper-host\local\Transient\Rider\v202\SolutionCaches\_MedicineApplication.930377603.00" t="ExcludeRecursive" />
-    <e p="C:\Users\Admin\YandexDisk\Work\Edu\C#\medicine_app" t="IncludeFlat">
-      <e p="MedicineApplication" t="IncludeRecursive">
+    <e p="C:\Users\iljas\.Rider2019.3\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\iljas\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_MedicineApplication.-1071487155.00" t="ExcludeRecursive" />
+    <e p="C:\Users\iljas\YandexDisk\Work\Edu\C#\medicine_app" t="IncludeFlat">
+      <e p="CarApplication" t="IncludeRecursive">
         <e p="appsettings.Development.json" t="Include" />
         <e p="appsettings.json" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
+        <e p="CarApplication.csproj" t="IncludeRecursive" />
         <e p="Core" t="Include">
           <e p="DB.cs" t="Include" />
           <e p="Entity.cs" t="Include" />
@@ -18,7 +17,6 @@
           <e p="SocketService.cs" t="Include" />
           <e p="User.cs" t="Include" />
         </e>
-        <e p="MedicineApplication.csproj" t="IncludeRecursive" />
         <e p="Model" t="Include">
           <e p="Message" t="Include">
             <e p="MessageContent.cs" t="Include" />
@@ -27,6 +25,7 @@
           </e>
           <e p="Offer" t="Include">
             <e p="OfferEntity.cs" t="Include" />
+            <e p="OfferImageEntity.cs" t="Include" />
             <e p="OfferRepository.cs" t="Include" />
           </e>
           <e p="User" t="Include">
@@ -37,13 +36,17 @@
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netcoreapp3.1" t="Include">
-              <e p="MedicineApplication.AssemblyInfo.cs" t="Include" />
-              <e p="MedicineApplication.RazorAssemblyInfo.cs" t="Include" />
+              <e p="CarApplication.AssemblyInfo.cs" t="Include" />
+              <e p="CarApplication.RazorAssemblyInfo.cs" t="Include" />
             </e>
           </e>
         </e>
         <e p="Pages" t="Include">
           <e p="_ViewStart.cshtml" t="Include" />
+          <e p="AdminPanel" t="Include">
+            <e p="Index.cshtml" t="Include" />
+            <e p="Index.cshtml.cs" t="Include" />
+          </e>
           <e p="Auth" t="Include">
             <e p="Login.cshtml" t="Include" />
             <e p="Login.cshtml.cs" t="Include" />
@@ -54,32 +57,72 @@
             <e p="Index.cshtml" t="Include" />
             <e p="Index.cshtml.cs" t="Include" />
           </e>
+          <e p="Error" t="Include">
+            <e p="Error403.cshtml" t="Include" />
+            <e p="Error403.cshtml.cs" t="Include" />
+            <e p="Error404.cshtml" t="Include" />
+            <e p="Error404.cshtml.cs" t="Include" />
+          </e>
           <e p="Index.cshtml" t="Include" />
           <e p="Index.cshtml.cs" t="Include" />
+          <e p="Logout.cshtml" t="Include" />
+          <e p="Logout.cshtml.cs" t="Include" />
           <e p="Offer" t="Include">
+            <e p="Ajax.cshtml" t="Include" />
+            <e p="Ajax.cshtml.cs" t="Include" />
+            <e p="Block.cshtml" t="Include" />
+            <e p="Block.cshtml.cs" t="Include" />
             <e p="Create.cshtml" t="Include" />
             <e p="Create.cshtml.cs" t="Include" />
+            <e p="Delete.cshtml" t="Include" />
+            <e p="Delete.cshtml.cs" t="Include" />
+            <e p="Edit.cshtml" t="Include" />
+            <e p="Edit.cshtml.cs" t="Include" />
+            <e p="List.cshtml" t="Include" />
+            <e p="List.cshtml.cs" t="Include" />
+            <e p="View.cshtml" t="Include" />
+            <e p="View.cshtml.cs" t="Include" />
           </e>
           <e p="Profile" t="Include">
+            <e p="_Nav.cshtml" t="Include" />
+            <e p="Data.cshtml" t="Include" />
+            <e p="Data.cshtml.cs" t="Include" />
+            <e p="Index.cshtml" t="Include" />
+            <e p="Index.cshtml.cs" t="Include" />
             <e p="Offers.cshtml" t="Include" />
             <e p="Offers.cshtml.cs" t="Include" />
+            <e p="Security.cshtml" t="Include" />
+            <e p="Security.cshtml.cs" t="Include" />
           </e>
           <e p="Shared" t="Include">
             <e p="_Layout.cshtml" t="Include" />
-            <e p="_Nav.cshtml" t="Include" />
           </e>
+          <e p="User.cshtml" t="Include" />
+          <e p="User.cshtml.cs" t="Include" />
         </e>
         <e p="Program.cs" t="Include" />
         <e p="Properties" t="Include">
           <e p="launchSettings.json" t="Include" />
         </e>
         <e p="Startup.cs" t="Include" />
+        <e p="Web.config" t="Include" />
         <e p="wwwroot" t="Include">
           <e p="config.rb" t="Include" />
           <e p="css" t="Include">
             <e p="bootstrap.css" t="Include" />
             <e p="main.css" t="Include" />
             <e p="site.css" t="Include" />
+          </e>
+          <e p="Files" t="Include">
+            <e p="1491476210_Screenshot_3.jpg" t="Include" />
+            <e p="1554995934_KAN.png" t="Include" />
+            <e p="1563907440_Screenshot_4.jpg" t="Include" />
+            <e p="1886404037_Screenshot_1.jpg" t="Include" />
+            <e p="1965475144_Screenshot_2.jpg" t="Include" />
+            <e p="2043017023_Screenshot_3.jpg" t="Include" />
+            <e p="2066914016_Screenshot_1.jpg" t="Include" />
+            <e p="535820922_Screenshot_5.jpg" t="Include" />
+            <e p="704830423_KAN.png" t="Include" />
           </e>
           <e p="js" t="Include">
             <e p="bootstrap.js" t="Include" />
@@ -91,6 +134,62 @@
             <e p="site.scss" t="Include" />
           </e>
           <e p="upload" t="Include" />
+        </e>
+        <e p="Фронт" t="Include">
+          <e p="AdminPanel" t="Include">
+            <e p="AdminPanel.html" t="Include" />
+          </e>
+          <e p="Adt" t="Include">
+            <e p="Adt.html" t="Include" />
+            <e p="debug.log" t="Include" />
+          </e>
+          <e p="Chat" t="Include">
+            <e p="Chat.html" t="Include" />
+          </e>
+          <e p="CreateAdt" t="Include">
+            <e p="CreateAdt.html" t="Include" />
+          </e>
+          <e p="Header" t="Include">
+            <e p="header.html" t="Include" />
+          </e>
+          <e p="image" t="Include">
+            <e p="smallLogo.jpg" t="Include" />
+          </e>
+          <e p="main.css" t="Include" />
+          <e p="main.js" t="Include" />
+          <e p="MainPage" t="Include">
+            <e p="MainPage.html" t="Include" />
+          </e>
+          <e p="MyAdts" t="Include">
+            <e p="MyAdts.html" t="Include" />
+          </e>
+          <e p="OtherUserPage" t="Include">
+            <e p="OtherUserPage.html" t="Include" />
+          </e>
+          <e p="PersonalArea" t="Include">
+            <e p="PersonalArea.css" t="Include" />
+            <e p="PersonalArea.html" t="Include" />
+            <e p="PersonalArea.js" t="Include" />
+            <e p="rightContent" t="Include">
+              <e p="PersonalData.html" t="Include" />
+              <e p="ProfileSettings.html" t="Include" />
+              <e p="Sequrity.html" t="Include" />
+            </e>
+          </e>
+          <e p="RedactAdt" t="Include">
+            <e p="RedactAdt.html" t="Include" />
+          </e>
+          <e p="Registration" t="Include">
+            <e p="Registration.css" t="Include" />
+            <e p="Registration.html" t="Include" />
+            <e p="Registration.js" t="Include" />
+          </e>
+          <e p="SavedAdts" t="Include">
+            <e p="SavedAdts.html" t="Include" />
+          </e>
+          <e p="Search" t="Include">
+            <e p="Search.html" t="Include" />
+          </e>
         </e>
       </e>
       <e p="MedicineApplication.sln" t="IncludeFlat" />

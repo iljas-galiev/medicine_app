@@ -1,0 +1,33 @@
+﻿@page
+@model CarApplication.Pages.Offer.Ajax
+
+@{
+    Layout = null;
+}
+
+
+<ul class="horizontal-padding-none border-none adt-ul">
+    @{
+        foreach (var offer in Model.Offers)
+        {
+            <li class="adt-li">
+                <a class="custom-a adt-li-contents" href="/offer/view?id=@offer.Id">
+                    <div class="adt-li-name">
+                        @offer.Title
+                    </div>
+                    <div class="adt-li-info">
+                        <div class="adt-li-info-item">
+                            @offer.Brand
+                        </div>
+                        <div class="adt-li-info-item">
+                            @offer.Model
+                        </div>
+                        <div class="adt-li-info-item">
+                            @offer.Price руб.
+                        </div>
+                    </div>
+                </a>
+            </li>
+        }
+    }
+</ul>
