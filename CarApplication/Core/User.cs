@@ -67,7 +67,7 @@ namespace CarApplication.Core
         }
         public static void AllowAdmin(HttpContext context)
         {
-            if (context.Session.Keys.Contains("user"))
+            if (!context.Session.Keys.Contains("user") || context.Session.GetString("user") != "2")
             {
                 context.Response.StatusCode = 301;
                 context.Response.Headers.Add("Location", "/");

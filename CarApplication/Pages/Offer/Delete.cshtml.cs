@@ -15,8 +15,18 @@ namespace CarApplication.Pages.Offer
             Core.User.AllowAuth(HttpContext);
 
             var user = Convert.ToInt32(HttpContext.Session.GetString("user"));
-            var offer = Db.Dc.GetTable<OfferEntity>()
-                .FirstOrDefault(o => o.Id == id && o.UserId == user && o.Status != OfferEntity.BlockAdmin);
+            var offer = new OfferEntity();
+            if (user != 2)
+            {
+                offer = Db.Dc.GetTable<OfferEntity>()
+                    .FirstOrDefault(o => o.Id == id && o.UserId == user && o.Status != OfferEntity.BlockAdmin);
+            }
+            else
+            {
+                offer = Db.Dc.GetTable<OfferEntity>()
+                    .FirstOrDefault(o => o.Id == id);
+            }
+
             if (offer != null)
             {
                 (new OfferRepository()).Delete(offer);

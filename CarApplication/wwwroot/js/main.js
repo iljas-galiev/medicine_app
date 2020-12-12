@@ -125,7 +125,6 @@ function checkLogin() {
 
 }
 
-//Доделать позже
 function isEmailStringCorrect(string) {
     if (string.length > 5 && string.length < 31) {
         let reg = /\w+@(\w+\.)+(com|ru)/
@@ -177,7 +176,7 @@ function checkPhone() {
 }
 
 function sendForm() {
-    if (checkLogin() && checkPassword1() && checkSecondPasswordIsSimilarToFirst() && checkEmail() && checkPhone()) {
+    if (checkPassword1() && checkSecondPasswordIsSimilarToFirst() && checkEmail() && checkPhone()) {
         let form = document.getElementById("regForm");
         form.method = "POST";
         form.submit()
@@ -379,6 +378,9 @@ $(document).ready(function () {
                 document.location.reload();
             }
         });
+    });
+    $('.view-adt-btn').click(function () {
+        document.location.href=$(this).data('url')
     });
     $('#adt-selector').change(function () {
         document.location.href = "/profile/offers?filter=" + $(this).val();

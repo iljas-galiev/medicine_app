@@ -4,6 +4,7 @@
 
 @{
     Layout = Layout;
+    ViewData["Title"] = "Админ-панель";
 }
 
 <ul class="admin-panel-adt-list">
@@ -18,15 +19,24 @@
                         @offerEntity.Title
                     </div>
                     <div class="admin-panel-adt-btns">
-                        <button class="adt-header-btn custom-btn">
+                        <button class="adt-header-btn view-adt-btn custom-btn" data-url="/offer/view?id=@offerEntity.Id">
                             Просмотреть
                         </button>
-                        <button class="adt-header-btn delete-adt-btn">
+                        <button class="adt-header-btn delete-adt-btn" data-id="@offerEntity.Id">
                             Удалить
                         </button>
-                        <button class="adt-header-btn block-adt-btn">
-                            Заблокировать
-                        </button>
+                        @if (offerEntity.Status >= OfferEntity.Block)
+                        {
+                            <button class="adt-header-btn block-adt-btn" data-status="2" data-id="@offerEntity.Id">
+                                Заблокировать
+                            </button>
+                        }
+                        else
+                        {
+                            <button class="adt-header-btn block-adt-btn" data-status="1" data-id="@offerEntity.Id">
+                                Разблокировать
+                            </button>
+                        }
                     </div>
                 </li>
             }

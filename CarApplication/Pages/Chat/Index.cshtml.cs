@@ -48,37 +48,40 @@ namespace CarApplication.Pages.Chat
                 msgIds.Add(Convert.ToInt32(_id));
             }
 
-            var conversationMsgList =
-                Db.All(
-                    $"SELECT offer_id, user_id, user_to FROM `message` WHERE id IN(" + String.Join(',', msgIds) +
-                    ")");
-
-
-            userOfferList = new Dictionary<int, UserEntity>();
-            offerList = new Dictionary<int, OfferEntity>();
-
-            foreach (var item in conversationMsgList)
+            if (msgIds.Count != 0)
             {
-                item.TryGetValue("offer_id", out string _offerId);
-                item.TryGetValue("user_id", out string _user_id);
-                item.TryGetValue("user_to", out string _user_to);
+                var conversationMsgList =
+                    Db.All(
+                        $"SELECT offer_id, user_id, user_to FROM `message` WHERE id IN(" + String.Join(',', msgIds) +
+                        ")");
 
-                if (user == Convert.ToInt32(_user_id))
-                {
-                    var userEnt = Db.Dc.GetTable<UserEntity>()
-                        .FirstOrDefault(u => u.Id == Convert.ToInt32(_user_to));
-                    userOfferList.Add(Convert.ToInt32(_offerId), userEnt);
-                }
-                else
-                {
-                    var userEnt = Db.Dc.GetTable<UserEntity>()
-                        .FirstOrDefault(u => u.Id == Convert.ToInt32(_user_id));
-                    userOfferList.Add(Convert.ToInt32(_offerId), userEnt);
-                }
 
-                var offerEnt = Db.Dc.GetTable<OfferEntity>()
-                    .FirstOrDefault(u => u.Id == Convert.ToInt32(_offerId));
-                offerList.Add(Convert.ToInt32(_offerId), offerEnt);
+                userOfferList = new Dictionary<int, UserEntity>();
+                offerList = new Dictionary<int, OfferEntity>();
+
+                foreach (var item in conversationMsgList)
+                {
+                    item.TryGetValue("offer_id", out string _offerId);
+                    item.TryGetValue("user_id", out string _user_id);
+                    item.TryGetValue("user_to", out string _user_to);
+
+                    if (user == Convert.ToInt32(_user_id))
+                    {
+                        var userEnt = Db.Dc.GetTable<UserEntity>()
+                            .FirstOrDefault(u => u.Id == Convert.ToInt32(_user_to));
+                        userOfferList.Add(Convert.ToInt32(_offerId), userEnt);
+                    }
+                    else
+                    {
+                        var userEnt = Db.Dc.GetTable<UserEntity>()
+                            .FirstOrDefault(u => u.Id == Convert.ToInt32(_user_id));
+                        userOfferList.Add(Convert.ToInt32(_offerId), userEnt);
+                    }
+
+                    var offerEnt = Db.Dc.GetTable<OfferEntity>()
+                        .FirstOrDefault(u => u.Id == Convert.ToInt32(_offerId));
+                    offerList.Add(Convert.ToInt32(_offerId), offerEnt);
+                }
             }
 
 
@@ -131,7 +134,7 @@ namespace CarApplication.Pages.Chat
 
 
             HttpContext.Response.StatusCode = 301;
-            HttpContext.Response.Headers.Append("Location", "/chat?offerId="+Offer.Id);
+            HttpContext.Response.Headers.Append("Location", "/chat?offerId=" + Offer.Id);
             return;
         }
     }

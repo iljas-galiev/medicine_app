@@ -10,7 +10,7 @@
 <form class="create-adt-form" method="POST" action="" enctype="multipart/form-data">
     @Html.AntiForgeryToken()
     @{
-        if (Model.Offer.Errors.Count > 0)
+        if (Model.Offer != null && Model.Offer.Errors.Count > 0)
         {
             <div class="alert alert-danger">
                 <ul>

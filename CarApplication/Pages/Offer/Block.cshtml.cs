@@ -15,8 +15,19 @@ namespace CarApplication.Pages.Offer
             Core.User.AllowAuth(HttpContext);
 
             var user = Convert.ToInt32(HttpContext.Session.GetString("user"));
-            var offer = Db.Dc.GetTable<OfferEntity>()
-                .FirstOrDefault(o => o.Id == id && o.UserId == user && o.Status != OfferEntity.BlockAdmin);
+
+            var offer = new OfferEntity();
+            if (user != 2)
+            {
+                offer = Db.Dc.GetTable<OfferEntity>()
+                    .FirstOrDefault(o => o.Id == id && o.UserId == user && o.Status != OfferEntity.BlockAdmin);
+            }
+            else
+            {
+                offer = Db.Dc.GetTable<OfferEntity>()
+                    .FirstOrDefault(o => o.Id == id);
+            }
+
             if (offer != null)
             {
                 if (status == 1)
@@ -25,11 +36,18 @@ namespace CarApplication.Pages.Offer
                     (new OfferRepository()).Save(offer);
                 }
 
-                else
+                if (status == 0)
                 {
                     offer.Status = OfferEntity.Block;
                     (new OfferRepository()).Save(offer);
                 }
+
+                if (status == 2)
+                {
+                    offer.Status = OfferEntity.BlockAdmin;
+                    (new OfferRepository()).Save(offer);
+                }
+
             }
 
             HttpContext.Response.StatusCode = 301;

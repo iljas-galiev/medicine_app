@@ -37,7 +37,7 @@
                     </li>
                 </ul>
                 @{
-                        if (!Context.Session.Keys.Contains("user"))
+                    if (!Context.Session.Keys.Contains("user"))
                     {
                         <div class="dropdown">
                             <button class="btn dropdown-toggle header-btn-elem" type="button" id="dropdownEnterButton"
@@ -73,11 +73,15 @@
                         <div class="dropdown">
                             <button class="btn dropdown-toggle header-btn-elem" type="button" id="dropdownEnterButton"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                @Context.Session.GetString("user_email")
+                                @Context.Session.GetString("user_name")
                             </button>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownEnterButton">
                                 <a class="custom-a dropdown-item" href="/profile/index">Личный кабинет</a>
                                 <a class="custom-a dropdown-item" href="/profile/offers">Мои объявления</a>
+                                @if (Context.Session.GetString("user") == "2")
+                                {
+                                    <a class="custom-a dropdown-item" href="/adminPanel">Админ-панель</a>
+                                }
                                 <a class="custom-a dropdown-item" href="/logout">Выйти</a>
                             </div>
                         </div>

@@ -1,14 +1,11 @@
 ﻿{
   "version": "1.0.0",
   "restore": {
-    "projectUniqueName": "C:\\Users\\iljas\\YandexDisk\\Work\\Edu\\C#\\medicine_app\\CarApplication\\CarApplication.csproj",
+    "projectUniqueName": "C:\\Users\\Admin\\YandexDisk\\Work\\Edu\\C#\\medicine_app\\CarApplication\\CarApplication.csproj",
     "projectName": "CarApplication",
-    "projectPath": "C:\\Users\\iljas\\YandexDisk\\Work\\Edu\\C#\\medicine_app\\CarApplication\\CarApplication.csproj",
-    "outputPath": "C:\\Users\\iljas\\YandexDisk\\Work\\Edu\\C#\\medicine_app\\CarApplication\\obj\\",
+    "projectPath": "C:\\Users\\Admin\\YandexDisk\\Work\\Edu\\C#\\medicine_app\\CarApplication\\CarApplication.csproj",
+    "outputPath": "C:\\Users\\Admin\\YandexDisk\\Work\\Edu\\C#\\medicine_app\\CarApplication\\obj\\",
     "projectStyle": "PackageReference",
-    "fallbackFolders": [
-      "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-    ],
     "originalTargetFrameworks": [
       "netcoreapp3.1"
     ],
@@ -69,7 +66,7 @@
           "privateAssets": "all"
         }
       },
-      "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
+      "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
     }
   }
 }

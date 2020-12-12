@@ -43,6 +43,7 @@ namespace CarApplication.Pages.Auth
                 HttpContext.Session.SetString("user", user.Id.ToString());
                 HttpContext.Session.SetString("user_email", user.Email.ToString());
                 HttpContext.Session.SetString("user_salt", user.Salt.ToString());
+                HttpContext.Session.SetString("user_name", user.Name.ToString());
 
 
                 if (Remember == "on")

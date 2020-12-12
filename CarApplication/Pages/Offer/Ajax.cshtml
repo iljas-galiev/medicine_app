@@ -8,26 +8,33 @@
 
 <ul class="horizontal-padding-none border-none adt-ul">
     @{
-        foreach (var offer in Model.Offers)
+        if (Model.Offers == null || !Model.Offers.Any())
         {
-            <li class="adt-li">
-                <a class="custom-a adt-li-contents" href="/offer/view?id=@offer.Id">
-                    <div class="adt-li-name">
-                        @offer.Title
-                    </div>
-                    <div class="adt-li-info">
-                        <div class="adt-li-info-item">
-                            @offer.Brand
+            <h2 class="text-center">Не найдено</h2>
+        }
+        else
+        {
+            foreach (var offer in Model.Offers)
+            {
+                <li class="adt-li">
+                    <a class="custom-a adt-li-contents" href="/offer/view?id=@offer.Id">
+                        <div class="adt-li-name">
+                            @offer.Title
                         </div>
-                        <div class="adt-li-info-item">
-                            @offer.Model
+                        <div class="adt-li-info">
+                            <div class="adt-li-info-item">
+                                @offer.Brand
+                            </div>
+                            <div class="adt-li-info-item">
+                                @offer.Model
+                            </div>
+                            <div class="adt-li-info-item">
+                                @offer.Price руб.
+                            </div>
                         </div>
-                        <div class="adt-li-info-item">
-                            @offer.Price руб.
-                        </div>
-                    </div>
-                </a>
-            </li>
+                    </a>
+                </li>
+            }
         }
     }
 </ul>

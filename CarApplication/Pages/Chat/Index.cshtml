@@ -6,6 +6,7 @@
 
 @{
     Layout = Layout;
+    ViewData["Title"] = "Чат";
 }
 <div class="row">
     <div class="col-md-3 right-line">
@@ -51,12 +52,7 @@
                             foreach (var message in Model.Messages)
                             {
                                 <li class="message
-                                @{
-                                    if (message.userId == Model.user)
-                                    {
-                                        Write("my-message");
-                                    }
-                                }
+                                @{ if (message.userId == Model.user) { Write("my-message"); } }
                                 ">
                                     <div class="message-user-info">
                                         <img class="chat-user-small-avatar" src="@message.userImage" width="40" height="40">

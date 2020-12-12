@@ -1,4 +1,5 @@
-﻿using CarApplication.Core;
+﻿using System;
+using CarApplication.Core;
 using CarApplication.Model.User;
 using LinqToDB;
 
@@ -28,6 +29,10 @@ namespace CarApplication.Model.Offer
 
             if (!UserRepository.IsValidEmail(offer.Email)) offer.AddError("E-mail", "Поле некорректно");
             if (!UserRepository.IsValidPhone(offer.Phone)) offer.AddError("Телефон", "Поле некорректно");
+
+
+            if(offer.IsNewRecord) offer.CreatedAt = DateTime.Now;
+            offer.UpdatedAt = DateTime.Now;
 
             return offer;
         }

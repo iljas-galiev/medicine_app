@@ -26,18 +26,25 @@ namespace CarApplication.Pages.Offer
             Core.User.AllowAuth(HttpContext);
 
             var user = Convert.ToInt32(HttpContext.Session.GetString("user"));
-            var offer = Db.Dc.GetTable<OfferEntity>()
-                .FirstOrDefault(o => o.Id == id && o.UserId == user);
+            var offer = new OfferEntity();
+            if (user != 2)
+            {
+                offer = Db.Dc.GetTable<OfferEntity>()
+                    .FirstOrDefault(o => o.Id == id && o.UserId == user);
+            }
+            else
+            {
+                offer = Db.Dc.GetTable<OfferEntity>()
+                    .FirstOrDefault(o => o.Id == id);
+            }
+
             if (offer == null)
             {
                 HttpContext.Response.StatusCode = 302;
                 HttpContext.Response.Headers.Add("Location", "/error/error404");
             }
-
-            Offer = offer;
-
-            //    HttpContext.Response.StatusCode = 301;
-            //    HttpContext.Response.Headers.Add("Location", "/profile/offers");
+            else
+                Offer = offer;
         }
 
         public void OnPost(int id, string title, string model, string brand, string phone, string price,
